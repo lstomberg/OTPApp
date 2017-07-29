@@ -33,19 +33,19 @@ import PermissionScope
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public var window: UIWindow? = UIWindow()
-    var viewController = ApplicationRootViewController()
+    var applicationViewController = ApplicationViewController()
     
     open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        self.window?.rootViewController = viewController
+        self.window?.rootViewController = applicationViewController
         self.window?.makeKeyAndVisible()
-        Permissions.default.incrementLaunchCount()
+//        Permissions.default.incrementLaunchCount()
         return true
     }
     
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        Permissions.default.incrementLaunchCount()
-    }
-    
+//    func applicationWillEnterForeground(_ application: UIApplication) {
+//        Permissions.default.incrementLaunchCount()
+//    }
+
     //example URL
     //epic2fa://addkey?issuer=Epic&name=Example&secret=ThisIsTheSecretKey
     
@@ -57,30 +57,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //push notification must include web service to hit for verification + OTP: we send TOTP
     
     open func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        print("Received URL: \(url)")
-        
-        guard let host = url.host,
-            host == "addkey",
-            let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
-            let queryItems = components.queryItems,
-            let item = queryItems.first(where: { $0.name == "data" }),
-            let base64String = item.value,
-            let utf8Data = Data(base64Encoded: base64String),
-            let environmentInfo = try? JSONDecoder().decode(EnvironmentInfo.self, from: utf8Data),
-            let secret = environmentInfo.generator.secret,
-            let generator = Generator(
-                factor: .timer(period: environmentInfo.generator.interval),
-                secret: Data(base64Encoded: secret)!,
-                algorithm: EnvironmentInfo.Generator.Algorithm.algorithm(value: environmentInfo.generator.algorithm),
-                digits: environmentInfo.generator.digits) else {
-                    print("invalid data")
-                    return false
-        }
-        
-        let token = Token(name: environmentInfo.organization.accountName, issuer: environmentInfo.organization.name, generator: generator)
-        let environment = Environment(info: environmentInfo, token: token)
-        viewController.add(newToken: token)
-        
+//        print("Received URL: \(url)")
+//
+//        guard let host = url.host,
+//            host == "addkey",
+//            let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+//            let queryItems = components.queryItems,
+//            let item = queryItems.first(where: { $0.name == "data" }),
+//            let base64String = item.value,
+//            let utf8Data = Data(base64Encoded: base64String),
+//            let environmentInfo = try? JSONDecoder().decode(EnvironmentInfo.self, from: utf8Data),
+//            let secret = environmentInfo.generator.secret,
+//            let generator = Generator(
+//                factor: .timer(period: environmentInfo.generator.interval),
+//                secret: Data(base64Encoded: secret)!,
+//                algorithm: EnvironmentInfo.Generator.Algorithm.algorithm(value: environmentInfo.generator.algorithm),
+//                digits: environmentInfo.generator.digits) else {
+//                    print("invalid data")
+//                    return false
+//        }
+//
+//        let token = Token(name: environmentInfo.organization.accountName, issuer: environmentInfo.organization.name, generator: generator)
+//        let environment = Environment(info: environmentInfo, token: token)
+//        viewController.add(newToken: token)
+
         return true
     }
 }

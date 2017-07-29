@@ -12,7 +12,6 @@ import Base32
 import WatchConnectivity
 import NetworkExtension
 
-
 class ApplicationRootViewController: UINavigationController {
     
     internal lazy var watchSession: WCSession = {

@@ -28,11 +28,20 @@
 		497706501F2B78E20061E8C1 /* WatchExtension.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4977064F1F2B78E20061E8C1 /* WatchExtension.xcassets */; };
 		497706541F2B78E20061E8C1 /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 497706361F2B78E20061E8C1 /* Watch.app */; };
 		497E92351F2AA28B000682F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E92341F2AA28B000682F9 /* AppDelegate.swift */; };
-		497E92371F2AA28B000682F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E92361F2AA28B000682F9 /* ViewController.swift */; };
 		497E924A1F2AA28B000682F9 /* TOTPAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E92491F2AA28B000682F9 /* TOTPAppTests.swift */; };
 		497E92601F2AA314000682F9 /* TOTPApp.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497E925B1F2AA314000682F9 /* TOTPApp.xcassets */; };
 		497E92631F2AA397000682F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497E92571F2AA314000682F9 /* LaunchScreen.storyboard */; };
 		497E92641F2AA397000682F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497E92591F2AA314000682F9 /* Main.storyboard */; };
+		49A26A4A1F2D152C00476EC3 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A491F2D152C00476EC3 /* ApplicationViewController.swift */; };
+		49A26A4C1F2D154C00476EC3 /* TokenListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A4B1F2D154C00476EC3 /* TokenListViewController.swift */; };
+		49A26A4E1F2D156100476EC3 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A4D1F2D156100476EC3 /* GeneratorViewController.swift */; };
+		49A26A501F2D15A600476EC3 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A4F1F2D15A600476EC3 /* InstructionsViewController.swift */; };
+		49A26A521F2D166800476EC3 /* ServiceCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A511F2D166800476EC3 /* ServiceCaller.swift */; };
+		49A26A551F2D16AA00476EC3 /* TokenCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A541F2D16AA00476EC3 /* TokenCenter.swift */; };
+		49A26A581F2D172700476EC3 /* PermissionsCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A571F2D172700476EC3 /* PermissionsCenter.swift */; };
+		49A26A5A1F2D17BF00476EC3 /* WatchTokenWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A591F2D17BF00476EC3 /* WatchTokenWriter.swift */; };
+		49A26A5C1F2D289000476EC3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A5B1F2D289000476EC3 /* Token.swift */; };
+		49A26A5E1F2D2DB400476EC3 /* URLConsumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A5D1F2D2DB400476EC3 /* URLConsumable.swift */; };
 		49E567041F2B7CAB00F1F281 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977065D1F2B79530061E8C1 /* ComplicationController.swift */; };
 		49FACFD91F2B7B7A0031186E /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FACFD71F2B7B7A0031186E /* Base32.framework */; };
 		49FACFDA1F2B7B7A0031186E /* OneTimePassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */; };
@@ -145,7 +154,6 @@
 		4977065E1F2B79530061E8C1 /* watchkitapp Extension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "watchkitapp Extension.entitlements"; sourceTree = "<group>"; };
 		497E92311F2AA28B000682F9 /* TOTPApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOTPApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497E92341F2AA28B000682F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		497E92361F2AA28B000682F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		497E92451F2AA28B000682F9 /* TOTPAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOTPAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		497E92491F2AA28B000682F9 /* TOTPAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPAppTests.swift; sourceTree = "<group>"; };
 		497E92581F2AA314000682F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,6 +161,16 @@
 		497E925B1F2AA314000682F9 /* TOTPApp.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TOTPApp.xcassets; sourceTree = "<group>"; };
 		497E925C1F2AA314000682F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		497E925D1F2AA314000682F9 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		49A26A491F2D152C00476EC3 /* ApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
+		49A26A4B1F2D154C00476EC3 /* TokenListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListViewController.swift; sourceTree = "<group>"; };
+		49A26A4D1F2D156100476EC3 /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
+		49A26A4F1F2D15A600476EC3 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		49A26A511F2D166800476EC3 /* ServiceCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCaller.swift; sourceTree = "<group>"; };
+		49A26A541F2D16AA00476EC3 /* TokenCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCenter.swift; sourceTree = "<group>"; };
+		49A26A571F2D172700476EC3 /* PermissionsCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsCenter.swift; sourceTree = "<group>"; };
+		49A26A591F2D17BF00476EC3 /* WatchTokenWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTokenWriter.swift; sourceTree = "<group>"; };
+		49A26A5B1F2D289000476EC3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		49A26A5D1F2D2DB400476EC3 /* URLConsumable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConsumable.swift; sourceTree = "<group>"; };
 		49FACFD71F2B7B7A0031186E /* Base32.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base32.framework; path = Carthage/Build/watchOS/Base32.framework; sourceTree = "<group>"; };
 		49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneTimePassword.framework; path = Carthage/Build/watchOS/OneTimePassword.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -285,14 +303,16 @@
 		497E92331F2AA28B000682F9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				49A26A601F2D2DC700476EC3 /* Protocols */,
+				49A26A5F1F2D2DC200476EC3 /* Models */,
+				49A26A561F2D16B500476EC3 /* View Controllers */,
+				49A26A531F2D166C00476EC3 /* APIs */,
 				4977060F1F2B786A0061E8C1 /* ApplicationRootViewController.swift */,
 				497706101F2B786A0061E8C1 /* TOTPEnvironmentListViewController.swift */,
 				497706111F2B786A0061E8C1 /* TOTPProvidingViewController.swift */,
 				497706121F2B786A0061E8C1 /* Permissions.swift */,
 				497706131F2B786A0061E8C1 /* OneTimeService.swift */,
-				497706141F2B786A0061E8C1 /* SettingsViewController.swift */,
 				497E92341F2AA28B000682F9 /* AppDelegate.swift */,
-				497E92361F2AA28B000682F9 /* ViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -331,6 +351,45 @@
 				497E92591F2AA314000682F9 /* Main.storyboard */,
 			);
 			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		49A26A531F2D166C00476EC3 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				49A26A511F2D166800476EC3 /* ServiceCaller.swift */,
+				49A26A541F2D16AA00476EC3 /* TokenCenter.swift */,
+				49A26A571F2D172700476EC3 /* PermissionsCenter.swift */,
+				49A26A591F2D17BF00476EC3 /* WatchTokenWriter.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		49A26A561F2D16B500476EC3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				49A26A491F2D152C00476EC3 /* ApplicationViewController.swift */,
+				49A26A4B1F2D154C00476EC3 /* TokenListViewController.swift */,
+				49A26A4D1F2D156100476EC3 /* GeneratorViewController.swift */,
+				497706141F2B786A0061E8C1 /* SettingsViewController.swift */,
+				49A26A4F1F2D15A600476EC3 /* InstructionsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		49A26A5F1F2D2DC200476EC3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49A26A5B1F2D289000476EC3 /* Token.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		49A26A601F2D2DC700476EC3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				49A26A5D1F2D2DB400476EC3 /* URLConsumable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +441,7 @@
 				497450A31F2AA94B00BEEFE9 /* CopyFiles */,
 				4977065C1F2B78E20061E8C1 /* Embed Watch Content */,
 				49E567051F2B7D0300F1F281 /* SwiftLint */,
+				49A26A481F2D0B8100476EC3 /* Output COMMENT tags */,
 			);
 			buildRules = (
 			);
@@ -497,6 +557,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		49A26A481F2D0B8100476EC3 /* Output COMMENT tags */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Output COMMENT tags";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "WARNINGTAGS=\"TODO:|FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($WARNINGTAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($WARNINGTAGS)/ warning: 🛠 \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: 😱 \\$1/\"";
+		};
 		49E567051F2B7D0300F1F281 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -543,14 +617,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				497E92371F2AA28B000682F9 /* ViewController.swift in Sources */,
+				49A26A4C1F2D154C00476EC3 /* TokenListViewController.swift in Sources */,
 				497706171F2B786A0061E8C1 /* TOTPProvidingViewController.swift in Sources */,
+				49A26A521F2D166800476EC3 /* ServiceCaller.swift in Sources */,
+				49A26A581F2D172700476EC3 /* PermissionsCenter.swift in Sources */,
+				49A26A4A1F2D152C00476EC3 /* ApplicationViewController.swift in Sources */,
 				497706161F2B786A0061E8C1 /* TOTPEnvironmentListViewController.swift in Sources */,
 				497706191F2B786A0061E8C1 /* OneTimeService.swift in Sources */,
+				49A26A5C1F2D289000476EC3 /* Token.swift in Sources */,
+				49A26A501F2D15A600476EC3 /* InstructionsViewController.swift in Sources */,
 				497E92351F2AA28B000682F9 /* AppDelegate.swift in Sources */,
+				49A26A551F2D16AA00476EC3 /* TokenCenter.swift in Sources */,
 				497706181F2B786A0061E8C1 /* Permissions.swift in Sources */,
 				497706151F2B786A0061E8C1 /* ApplicationRootViewController.swift in Sources */,
 				4977061A1F2B786A0061E8C1 /* SettingsViewController.swift in Sources */,
+				49A26A5A1F2D17BF00476EC3 /* WatchTokenWriter.swift in Sources */,
+				49A26A4E1F2D156100476EC3 /* GeneratorViewController.swift in Sources */,
+				49A26A5E1F2D2DB400476EC3 /* URLConsumable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
