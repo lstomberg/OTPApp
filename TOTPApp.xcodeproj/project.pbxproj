@@ -10,6 +10,7 @@
 		4922444E1F2AA86B00310B89 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444B1F2AA86B00310B89 /* Base32.framework */; };
 		4922444F1F2AA86B00310B89 /* OneTimePassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444C1F2AA86B00310B89 /* OneTimePassword.framework */; };
 		492244501F2AA86B00310B89 /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444D1F2AA86B00310B89 /* PermissionScope.framework */; };
+		49527EF71F2E3A4E0069CE18 /* WatchProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */; };
 		497450A41F2AA95900BEEFE9 /* Base32.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444B1F2AA86B00310B89 /* Base32.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497450A51F2AA95900BEEFE9 /* OneTimePassword.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444C1F2AA86B00310B89 /* OneTimePassword.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497450A61F2AA95900BEEFE9 /* PermissionScope.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444D1F2AA86B00310B89 /* PermissionScope.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -39,9 +40,8 @@
 		49A26A521F2D166800476EC3 /* ServiceCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A511F2D166800476EC3 /* ServiceCaller.swift */; };
 		49A26A551F2D16AA00476EC3 /* TokenCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A541F2D16AA00476EC3 /* TokenCenter.swift */; };
 		49A26A581F2D172700476EC3 /* PermissionsCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A571F2D172700476EC3 /* PermissionsCenter.swift */; };
-		49A26A5A1F2D17BF00476EC3 /* WatchTokenWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A591F2D17BF00476EC3 /* WatchTokenWriter.swift */; };
-		49A26A5C1F2D289000476EC3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A5B1F2D289000476EC3 /* Token.swift */; };
-		49A26A5E1F2D2DB400476EC3 /* URLConsumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A5D1F2D2DB400476EC3 /* URLConsumable.swift */; };
+		49A26A5A1F2D17BF00476EC3 /* TokenWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A591F2D17BF00476EC3 /* TokenWriter.swift */; };
+		49A26A5C1F2D289000476EC3 /* ExtendedToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A5B1F2D289000476EC3 /* ExtendedToken.swift */; };
 		49E567041F2B7CAB00F1F281 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977065D1F2B79530061E8C1 /* ComplicationController.swift */; };
 		49FACFD91F2B7B7A0031186E /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FACFD71F2B7B7A0031186E /* Base32.framework */; };
 		49FACFDA1F2B7B7A0031186E /* OneTimePassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */; };
@@ -133,6 +133,7 @@
 		494F4B0D1F2AD3900049E310 /* iOS_Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = iOS_Framework.xcconfig; sourceTree = "<group>"; };
 		494F4B0E1F2AD3900049E310 /* watchOS_Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = watchOS_Application.xcconfig; sourceTree = "<group>"; };
 		494F4B0F1F2AD3900049E310 /* watchOS_Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = watchOS_Framework.xcconfig; sourceTree = "<group>"; };
+		49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProcess.swift; sourceTree = "<group>"; };
 		4977060F1F2B786A0061E8C1 /* ApplicationRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationRootViewController.swift; sourceTree = "<group>"; };
 		497706101F2B786A0061E8C1 /* TOTPEnvironmentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPEnvironmentListViewController.swift; sourceTree = "<group>"; };
 		497706111F2B786A0061E8C1 /* TOTPProvidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPProvidingViewController.swift; sourceTree = "<group>"; };
@@ -168,9 +169,8 @@
 		49A26A511F2D166800476EC3 /* ServiceCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCaller.swift; sourceTree = "<group>"; };
 		49A26A541F2D16AA00476EC3 /* TokenCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCenter.swift; sourceTree = "<group>"; };
 		49A26A571F2D172700476EC3 /* PermissionsCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsCenter.swift; sourceTree = "<group>"; };
-		49A26A591F2D17BF00476EC3 /* WatchTokenWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTokenWriter.swift; sourceTree = "<group>"; };
-		49A26A5B1F2D289000476EC3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		49A26A5D1F2D2DB400476EC3 /* URLConsumable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConsumable.swift; sourceTree = "<group>"; };
+		49A26A591F2D17BF00476EC3 /* TokenWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenWriter.swift; sourceTree = "<group>"; };
+		49A26A5B1F2D289000476EC3 /* ExtendedToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedToken.swift; sourceTree = "<group>"; };
 		49FACFD71F2B7B7A0031186E /* Base32.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base32.framework; path = Carthage/Build/watchOS/Base32.framework; sourceTree = "<group>"; };
 		49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneTimePassword.framework; path = Carthage/Build/watchOS/OneTimePassword.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -303,7 +303,6 @@
 		497E92331F2AA28B000682F9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				49A26A601F2D2DC700476EC3 /* Protocols */,
 				49A26A5F1F2D2DC200476EC3 /* Models */,
 				49A26A561F2D16B500476EC3 /* View Controllers */,
 				49A26A531F2D166C00476EC3 /* APIs */,
@@ -359,7 +358,8 @@
 				49A26A511F2D166800476EC3 /* ServiceCaller.swift */,
 				49A26A541F2D16AA00476EC3 /* TokenCenter.swift */,
 				49A26A571F2D172700476EC3 /* PermissionsCenter.swift */,
-				49A26A591F2D17BF00476EC3 /* WatchTokenWriter.swift */,
+				49A26A591F2D17BF00476EC3 /* TokenWriter.swift */,
+				49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -379,17 +379,9 @@
 		49A26A5F1F2D2DC200476EC3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				49A26A5B1F2D289000476EC3 /* Token.swift */,
+				49A26A5B1F2D289000476EC3 /* ExtendedToken.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		49A26A601F2D2DC700476EC3 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				49A26A5D1F2D2DB400476EC3 /* URLConsumable.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -622,18 +614,18 @@
 				49A26A521F2D166800476EC3 /* ServiceCaller.swift in Sources */,
 				49A26A581F2D172700476EC3 /* PermissionsCenter.swift in Sources */,
 				49A26A4A1F2D152C00476EC3 /* ApplicationViewController.swift in Sources */,
+				49527EF71F2E3A4E0069CE18 /* WatchProcess.swift in Sources */,
 				497706161F2B786A0061E8C1 /* TOTPEnvironmentListViewController.swift in Sources */,
 				497706191F2B786A0061E8C1 /* OneTimeService.swift in Sources */,
-				49A26A5C1F2D289000476EC3 /* Token.swift in Sources */,
+				49A26A5C1F2D289000476EC3 /* ExtendedToken.swift in Sources */,
 				49A26A501F2D15A600476EC3 /* InstructionsViewController.swift in Sources */,
 				497E92351F2AA28B000682F9 /* AppDelegate.swift in Sources */,
 				49A26A551F2D16AA00476EC3 /* TokenCenter.swift in Sources */,
 				497706181F2B786A0061E8C1 /* Permissions.swift in Sources */,
 				497706151F2B786A0061E8C1 /* ApplicationRootViewController.swift in Sources */,
 				4977061A1F2B786A0061E8C1 /* SettingsViewController.swift in Sources */,
-				49A26A5A1F2D17BF00476EC3 /* WatchTokenWriter.swift in Sources */,
+				49A26A5A1F2D17BF00476EC3 /* TokenWriter.swift in Sources */,
 				49A26A4E1F2D156100476EC3 /* GeneratorViewController.swift in Sources */,
-				49A26A5E1F2D2DB400476EC3 /* URLConsumable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

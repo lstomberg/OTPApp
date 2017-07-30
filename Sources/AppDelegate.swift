@@ -31,57 +31,31 @@ import PermissionScope
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    public var window: UIWindow? = UIWindow()
-    var applicationViewController = ApplicationViewController()
-    
-    open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        self.window?.rootViewController = applicationViewController
-        self.window?.makeKeyAndVisible()
-//        Permissions.default.incrementLaunchCount()
-        return true
-    }
-    
-//    func applicationWillEnterForeground(_ application: UIApplication) {
-//        Permissions.default.incrementLaunchCount()
-//    }
 
-    //example URL
-    //epic2fa://addkey?issuer=Epic&name=Example&secret=ThisIsTheSecretKey
-    
-    //NFC READING
-    //with iOS11 NFC tag reading capability, we could incorporate an NFC tag as Haiku's 2FA
-    
-    //PUSH NOTIFICATIONS
-    //QR code must include web service to hit to register for push notifications + OTP
-    //push notification must include web service to hit for verification + OTP: we send TOTP
-    
-    open func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-//        print("Received URL: \(url)")
-//
-//        guard let host = url.host,
-//            host == "addkey",
-//            let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
-//            let queryItems = components.queryItems,
-//            let item = queryItems.first(where: { $0.name == "data" }),
-//            let base64String = item.value,
-//            let utf8Data = Data(base64Encoded: base64String),
-//            let environmentInfo = try? JSONDecoder().decode(EnvironmentInfo.self, from: utf8Data),
-//            let secret = environmentInfo.generator.secret,
-//            let generator = Generator(
-//                factor: .timer(period: environmentInfo.generator.interval),
-//                secret: Data(base64Encoded: secret)!,
-//                algorithm: EnvironmentInfo.Generator.Algorithm.algorithm(value: environmentInfo.generator.algorithm),
-//                digits: environmentInfo.generator.digits) else {
-//                    print("invalid data")
-//                    return false
-//        }
-//
-//        let token = Token(name: environmentInfo.organization.accountName, issuer: environmentInfo.organization.name, generator: generator)
-//        let environment = Environment(info: environmentInfo, token: token)
-//        viewController.add(newToken: token)
+   public var window: UIWindow? = UIWindow()
+   var applicationViewController = ApplicationViewController()
 
-        return true
-    }
+   open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+      self.window?.rootViewController = applicationViewController
+      self.window?.makeKeyAndVisible()
+      //        Permissions.default.incrementLaunchCount()
+      return true
+   }
+
+
+   //example URL
+   //epic2fa://addkey?issuer=Epic&name=Example&secret=ThisIsTheSecretKey
+
+   //NFC READING
+   //with iOS11 NFC tag reading capability, we could incorporate an NFC tag as Haiku's 2FA
+
+   //PUSH NOTIFICATIONS
+   //QR code must include web service to hit to register for push notifications + OTP
+   //push notification must include web service to hit for verification + OTP: we send TOTP
+
+   open func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+      TokenCenter.main.addToken(with: url)
+      return true
+   }
 }
 
