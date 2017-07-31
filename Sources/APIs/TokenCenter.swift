@@ -58,11 +58,13 @@ struct TokenCenter {
 
       let extendedToken = ExtendedToken(localName: localName, endpoints: endpoints, uuid: persistentToken.identifier.base64EncodedString())
       TokenWriter.local.add(extendedToken)
+      NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
    }
 
    /// Updates the localName and endpoints for an ExtendedToken based on its uuid
    public func update(token: ExtendedToken) {
       TokenWriter.local.update(token)
+      NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
    }
 
    /// Removes the ExtendedToken and associated PersistentToken from this device
@@ -70,12 +72,13 @@ struct TokenCenter {
    public func remove(token: ExtendedToken) {
       try? Keychain.sharedInstance.delete(token.token)
       TokenWriter.local.delete(token)
+      NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
    }
 
    /// Lists all valid ExtendedTokens stored on this device
    /// This method validates all loaded Tokens to ensure there is a corresponding PersistentToken
    /// stored in the Keychain.  If there is not, it is not returned in the set
-   public func allTokens() -> Set<ExtendedToken> {
+   public func allTokens() -> [ExtendedToken] {
       let dict = UserDefaults.standard.dictionaryRepresentation()
       let tokenValues = dict.flatMap { TokenWriter.isExtendedTokenKey($0.key) ? $0.value as? Data : nil }
       let tokens: [ExtendedToken] = tokenValues.flatMap { try? JSONDecoder().decode(ExtendedToken.self, from: $0) }
@@ -90,8 +93,13 @@ struct TokenCenter {
          return nil
       }
 
-      return Set(validTokens)
+      return validTokens
    }
+}
+
+public extension NSNotification.Name {
+   
+   public static let TokenCenterDidUpdateTokens: NSNotification.Name = NSNotification.Name("TokenCenterDidUpdateTokens")
 }
 
 /// Private 'helper' methods for the TokenCenter

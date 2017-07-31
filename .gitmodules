@@ -7,3 +7,6 @@
 [submodule "Carthage/Checkouts/PermissionScope"]
 	path = Carthage/Checkouts/PermissionScope
 	url = https://github.com/nickoneill/PermissionScope.git
+[submodule "Carthage/Checkouts/Diff.swift"]
+	path = Carthage/Checkouts/Diff.swift
+	url = https://github.com/wokalski/Diff.swift.git

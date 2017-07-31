@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4915D24B1F2EEC72008E93AB /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915D24A1F2EEC72008E93AB /* EmptyStateViewController.swift */; };
 		4922444E1F2AA86B00310B89 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444B1F2AA86B00310B89 /* Base32.framework */; };
 		4922444F1F2AA86B00310B89 /* OneTimePassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444C1F2AA86B00310B89 /* OneTimePassword.framework */; };
 		492244501F2AA86B00310B89 /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444D1F2AA86B00310B89 /* PermissionScope.framework */; };
@@ -39,6 +40,13 @@
 		49A26A581F2D172700476EC3 /* PermissionsCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A571F2D172700476EC3 /* PermissionsCenter.swift */; };
 		49A26A5A1F2D17BF00476EC3 /* TokenWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A591F2D17BF00476EC3 /* TokenWriter.swift */; };
 		49A26A5C1F2D289000476EC3 /* ExtendedToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A5B1F2D289000476EC3 /* ExtendedToken.swift */; };
+		49C0FC9A1F2F064C00379E0B /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 49C0FC951F2F064B00379E0B /* Cartfile.resolved */; };
+		49C0FC9B1F2F064C00379E0B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 49C0FC961F2F064B00379E0B /* LICENSE */; };
+		49C0FC9C1F2F064C00379E0B /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 49C0FC971F2F064B00379E0B /* Cartfile */; };
+		49C0FC9D1F2F064C00379E0B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49C0FC981F2F064B00379E0B /* README.md */; };
+		49C0FC9E1F2F064C00379E0B /* updateCartfile.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49C0FC991F2F064B00379E0B /* updateCartfile.sh */; };
+		49C0FCA01F2F06F100379E0B /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C0FC9F1F2F06F100379E0B /* Diff.framework */; };
+		49C0FCA11F2F070500379E0B /* Diff.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49C0FC9F1F2F06F100379E0B /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49E567041F2B7CAB00F1F281 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977065D1F2B79530061E8C1 /* ComplicationController.swift */; };
 		49FACFD91F2B7B7A0031186E /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FACFD71F2B7B7A0031186E /* Base32.framework */; };
 		49FACFDA1F2B7B7A0031186E /* OneTimePassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */; };
@@ -77,6 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				49C0FCA11F2F070500379E0B /* Diff.framework in CopyFiles */,
 				497450A41F2AA95900BEEFE9 /* Base32.framework in CopyFiles */,
 				497450A51F2AA95900BEEFE9 /* OneTimePassword.framework in CopyFiles */,
 				497450A61F2AA95900BEEFE9 /* PermissionScope.framework in CopyFiles */,
@@ -119,6 +128,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4915D24A1F2EEC72008E93AB /* EmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
 		4922444B1F2AA86B00310B89 /* Base32.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base32.framework; path = Carthage/Build/iOS/Base32.framework; sourceTree = "<group>"; };
 		4922444C1F2AA86B00310B89 /* OneTimePassword.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneTimePassword.framework; path = Carthage/Build/iOS/OneTimePassword.framework; sourceTree = "<group>"; };
 		4922444D1F2AA86B00310B89 /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = Carthage/Build/iOS/PermissionScope.framework; sourceTree = "<group>"; };
@@ -164,6 +174,12 @@
 		49A26A571F2D172700476EC3 /* PermissionsCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsCenter.swift; sourceTree = "<group>"; };
 		49A26A591F2D17BF00476EC3 /* TokenWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenWriter.swift; sourceTree = "<group>"; };
 		49A26A5B1F2D289000476EC3 /* ExtendedToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedToken.swift; sourceTree = "<group>"; };
+		49C0FC951F2F064B00379E0B /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = SOURCE_ROOT; };
+		49C0FC961F2F064B00379E0B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		49C0FC971F2F064B00379E0B /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		49C0FC981F2F064B00379E0B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		49C0FC991F2F064B00379E0B /* updateCartfile.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = updateCartfile.sh; sourceTree = SOURCE_ROOT; };
+		49C0FC9F1F2F06F100379E0B /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
 		49EB90661F2ED51C002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EB90681F2ED529002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49FACFD71F2B7B7A0031186E /* Base32.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base32.framework; path = Carthage/Build/watchOS/Base32.framework; sourceTree = "<group>"; };
@@ -187,6 +203,7 @@
 				4922444E1F2AA86B00310B89 /* Base32.framework in Frameworks */,
 				4922444F1F2AA86B00310B89 /* OneTimePassword.framework in Frameworks */,
 				492244501F2AA86B00310B89 /* PermissionScope.framework in Frameworks */,
+				49C0FCA01F2F06F100379E0B /* Diff.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +220,7 @@
 		4922444A1F2AA86B00310B89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49C0FC9F1F2F06F100379E0B /* Diff.framework */,
 				49FACFD71F2B7B7A0031186E /* Base32.framework */,
 				49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */,
 				4922444B1F2AA86B00310B89 /* Base32.framework */,
@@ -250,12 +268,9 @@
 			isa = PBXGroup;
 			children = (
 				4977065D1F2B79530061E8C1 /* ComplicationController.swift */,
-				4977065E1F2B79530061E8C1 /* watchkitapp Extension.entitlements */,
 				497706491F2B78E20061E8C1 /* InterfaceController.swift */,
 				4977064B1F2B78E20061E8C1 /* ExtensionDelegate.swift */,
 				4977064D1F2B78E20061E8C1 /* NotificationController.swift */,
-				4977064F1F2B78E20061E8C1 /* WatchExtension.xcassets */,
-				497706511F2B78E20061E8C1 /* Info.plist */,
 				497706471F2B78E20061E8C1 /* Supporting Files */,
 			);
 			path = "Watch Extension";
@@ -264,6 +279,9 @@
 		497706471F2B78E20061E8C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4977065E1F2B79530061E8C1 /* watchkitapp Extension.entitlements */,
+				4977064F1F2B78E20061E8C1 /* WatchExtension.xcassets */,
+				497706511F2B78E20061E8C1 /* Info.plist */,
 				497706481F2B78E20061E8C1 /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
@@ -323,6 +341,11 @@
 		497E92541F2AA2C6000682F9 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				49C0FC971F2F064B00379E0B /* Cartfile */,
+				49C0FC951F2F064B00379E0B /* Cartfile.resolved */,
+				49C0FC961F2F064B00379E0B /* LICENSE */,
+				49C0FC981F2F064B00379E0B /* README.md */,
+				49C0FC991F2F064B00379E0B /* updateCartfile.sh */,
 			);
 			path = Docs;
 			sourceTree = "<group>";
@@ -357,6 +380,7 @@
 				49A26A4D1F2D156100476EC3 /* GeneratorViewController.swift */,
 				497706141F2B786A0061E8C1 /* SettingsViewController.swift */,
 				49A26A4F1F2D15A600476EC3 /* InstructionsViewController.swift */,
+				4915D24A1F2EEC72008E93AB /* EmptyStateViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -526,7 +550,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C0FC9B1F2F064C00379E0B /* LICENSE in Resources */,
+				49C0FC9E1F2F064C00379E0B /* updateCartfile.sh in Resources */,
 				497E92601F2AA314000682F9 /* TOTPApp.xcassets in Resources */,
+				49C0FC9D1F2F064C00379E0B /* README.md in Resources */,
+				49C0FC9C1F2F064C00379E0B /* Cartfile in Resources */,
+				49C0FC9A1F2F064C00379E0B /* Cartfile.resolved in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +638,7 @@
 				497706191F2B786A0061E8C1 /* OneTimeService.swift in Sources */,
 				49A26A5C1F2D289000476EC3 /* ExtendedToken.swift in Sources */,
 				49A26A501F2D15A600476EC3 /* InstructionsViewController.swift in Sources */,
+				4915D24B1F2EEC72008E93AB /* EmptyStateViewController.swift in Sources */,
 				497E92351F2AA28B000682F9 /* AppDelegate.swift in Sources */,
 				49A26A551F2D16AA00476EC3 /* TokenCenter.swift in Sources */,
 				497706181F2B786A0061E8C1 /* Permissions.swift in Sources */,

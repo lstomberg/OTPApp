@@ -25,8 +25,13 @@ class GeneratorViewController: UIViewController {
          }
 
          self.generatorView.password = currentPassword
-         self.generatorView.passwordValidFor = 29 - seconds%30
-         self.generatorView.nextPassword = (try? self.token.token.token.generator.password(at: Date(timeIntervalSinceNow: 30))) ?? ""
+         
+         let factor = self.token.token.token.generator.factor
+         if case let .timer(double) = factor {
+            let interval = Int(double)
+            self.generatorView.passwordValidFor = (interval-1) - seconds % interval
+            self.generatorView.nextPassword = (try? self.token.token.token.generator.password(at: Date(timeIntervalSinceNow: double))) ?? ""
+         }
       })
    }()
 
@@ -34,10 +39,6 @@ class GeneratorViewController: UIViewController {
       self.token = token
       super.init(nibName: nil, bundle: nil)
    }
-
-//   convenience init() {
-//      fatalError("GeneratorViewController requires a token")
-//   }
 
    required init?(coder aDecoder: NSCoder) {
       fatalError("init?(coder:) is not supported")

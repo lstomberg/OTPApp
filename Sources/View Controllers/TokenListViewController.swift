@@ -8,18 +8,38 @@
 
 import UIKit
 
+public extension NSNotification.Name {
+   public static let TokenListViewControllerDidChangeTokens = NSNotification.Name(rawValue: "TokenListViewControllerDidChangeTokens")
+}
+
 class TokenListViewController: UITableViewController {
-   
+
    public var tokens: [ExtendedToken] = [] {
+      
       didSet {
-         tableView.reloadData()
+         
+         //animateRowChanges causes animation even if collections are the same
+         //so we have to explicitly check that case
+         guard !oldValue.diff(tokens).isEmpty else {
+            return
+         }
+         
+         tableView.animateRowChanges(
+            oldData: oldValue,
+            newData: tokens)
+         
+         NotificationCenter.default.post(name: .TokenListViewControllerDidChangeTokens, object: nil)
       }
    }
 
    override func viewDidLoad() {
       super.viewDidLoad()
       title = "Accounts"
-      tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+   }
+   
+   override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      self.navigationController?.setNavigationBarHidden(false, animated: animated)
    }
 
    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,7 +47,7 @@ class TokenListViewController: UITableViewController {
    }
 
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
       cell.textLabel?.text = tokens[indexPath.row].localName
       cell.detailTextLabel?.text = "Issuer: \(tokens[indexPath.row].token.token.issuer)"
       cell.accessoryType = .disclosureIndicator
@@ -51,10 +71,7 @@ private extension TokenListViewController {
       let alert = UIAlertController(title: "Delete Key", message: "Are you sure you want to permanently delete \(tokens[indexPath.row].token.token.issuer)?", preferredStyle: .actionSheet)
 
       let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-         self.tableView.performBatchUpdates({
-            self.tableView.deleteRows(at: [indexPath], with: .left)
-            //TODO: figure out how to delete from this view only class
-         }, completion: nil)
+         self.tokens.remove(at: indexPath.row)
       })
 
       let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

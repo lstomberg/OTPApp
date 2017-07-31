@@ -59,20 +59,20 @@ extension UserDefaults: TokenWriterType {
 }
 
 /// The WatchProcess is used to store ExtendedTokens to the watch
+/// We aren't trying to be performant in our rarely-used small-sized updates to the watch
+/// Any time an add, update, or delete occurs, sync the entire token data set
 extension WatchProcess: TokenWriterType {
 
    func add(_ extendedToken: ExtendedToken) {
-//      update(extendedToken)
+      tokens = TokenCenter.main.allTokens()
    }
 
    func update(_ extendedToken: ExtendedToken) {
-//      if let data = try? JSONEncoder().encode(extendedToken) {
-//         self.set(data, forKey: key(for: extendedToken))
-//      }
+      tokens = TokenCenter.main.allTokens()
    }
 
    func delete(_ extendedToken: ExtendedToken) {
-//      self.removeObject(forKey: key(for: extendedToken))
+      tokens = TokenCenter.main.allTokens()
    }
 }
 
