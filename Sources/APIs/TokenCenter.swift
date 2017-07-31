@@ -54,7 +54,7 @@ struct TokenCenter {
          return
       }
       let endpoints = parseEndpoints(in: url)
-      let localName = persistentToken.token.name + persistentToken.token.issuer
+      let localName = persistentToken.token.name
 
       let extendedToken = ExtendedToken(localName: localName, endpoints: endpoints, uuid: persistentToken.identifier.base64EncodedString())
       TokenWriter.local.add(extendedToken)

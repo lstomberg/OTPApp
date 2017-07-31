@@ -6,4 +6,9 @@
 //  Copyright © 2017 Epic. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class InstructionsViewController: UIViewController {
+
+}
+

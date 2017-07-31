@@ -10,17 +10,16 @@
 		4922444E1F2AA86B00310B89 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444B1F2AA86B00310B89 /* Base32.framework */; };
 		4922444F1F2AA86B00310B89 /* OneTimePassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444C1F2AA86B00310B89 /* OneTimePassword.framework */; };
 		492244501F2AA86B00310B89 /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444D1F2AA86B00310B89 /* PermissionScope.framework */; };
+		494DE6AD1F2EB36A00E7A8E2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497706381F2B78E20061E8C1 /* Interface.storyboard */; };
 		49527EF71F2E3A4E0069CE18 /* WatchProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */; };
 		497450A41F2AA95900BEEFE9 /* Base32.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444B1F2AA86B00310B89 /* Base32.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497450A51F2AA95900BEEFE9 /* OneTimePassword.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444C1F2AA86B00310B89 /* OneTimePassword.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497450A61F2AA95900BEEFE9 /* PermissionScope.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444D1F2AA86B00310B89 /* PermissionScope.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497706151F2B786A0061E8C1 /* ApplicationRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977060F1F2B786A0061E8C1 /* ApplicationRootViewController.swift */; };
-		497706161F2B786A0061E8C1 /* TOTPEnvironmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497706101F2B786A0061E8C1 /* TOTPEnvironmentListViewController.swift */; };
 		497706171F2B786A0061E8C1 /* TOTPProvidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497706111F2B786A0061E8C1 /* TOTPProvidingViewController.swift */; };
 		497706181F2B786A0061E8C1 /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497706121F2B786A0061E8C1 /* Permissions.swift */; };
 		497706191F2B786A0061E8C1 /* OneTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497706131F2B786A0061E8C1 /* OneTimeService.swift */; };
 		4977061A1F2B786A0061E8C1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497706141F2B786A0061E8C1 /* SettingsViewController.swift */; };
-		4977063A1F2B78E20061E8C1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497706381F2B78E20061E8C1 /* Interface.storyboard */; };
 		4977063C1F2B78E20061E8C1 /* WatchApp.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4977063B1F2B78E20061E8C1 /* WatchApp.xcassets */; };
 		497706431F2B78E20061E8C1 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 497706421F2B78E20061E8C1 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4977064A1F2B78E20061E8C1 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497706491F2B78E20061E8C1 /* InterfaceController.swift */; };
@@ -31,8 +30,6 @@
 		497E92351F2AA28B000682F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E92341F2AA28B000682F9 /* AppDelegate.swift */; };
 		497E924A1F2AA28B000682F9 /* TOTPAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E92491F2AA28B000682F9 /* TOTPAppTests.swift */; };
 		497E92601F2AA314000682F9 /* TOTPApp.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497E925B1F2AA314000682F9 /* TOTPApp.xcassets */; };
-		497E92631F2AA397000682F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497E92571F2AA314000682F9 /* LaunchScreen.storyboard */; };
-		497E92641F2AA397000682F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497E92591F2AA314000682F9 /* Main.storyboard */; };
 		49A26A4A1F2D152C00476EC3 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A491F2D152C00476EC3 /* ApplicationViewController.swift */; };
 		49A26A4C1F2D154C00476EC3 /* TokenListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A4B1F2D154C00476EC3 /* TokenListViewController.swift */; };
 		49A26A4E1F2D156100476EC3 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A4D1F2D156100476EC3 /* GeneratorViewController.swift */; };
@@ -125,6 +122,7 @@
 		4922444B1F2AA86B00310B89 /* Base32.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base32.framework; path = Carthage/Build/iOS/Base32.framework; sourceTree = "<group>"; };
 		4922444C1F2AA86B00310B89 /* OneTimePassword.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneTimePassword.framework; path = Carthage/Build/iOS/OneTimePassword.framework; sourceTree = "<group>"; };
 		4922444D1F2AA86B00310B89 /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = Carthage/Build/iOS/PermissionScope.framework; sourceTree = "<group>"; };
+		494DE6AC1F2EB07000E7A8E2 /* TOTPApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TOTPApp.entitlements; sourceTree = "<group>"; };
 		494F4B081F2AD3900049E310 /* Configuration-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Configuration-Debug.xcconfig"; sourceTree = "<group>"; };
 		494F4B091F2AD3900049E310 /* Configuration-Profile-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Configuration-Profile-Release.xcconfig"; sourceTree = "<group>"; };
 		494F4B0A1F2AD3900049E310 /* Configuration-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Configuration-Release.xcconfig"; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 		494F4B0F1F2AD3900049E310 /* watchOS_Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = watchOS_Framework.xcconfig; sourceTree = "<group>"; };
 		49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProcess.swift; sourceTree = "<group>"; };
 		4977060F1F2B786A0061E8C1 /* ApplicationRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationRootViewController.swift; sourceTree = "<group>"; };
-		497706101F2B786A0061E8C1 /* TOTPEnvironmentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPEnvironmentListViewController.swift; sourceTree = "<group>"; };
 		497706111F2B786A0061E8C1 /* TOTPProvidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPProvidingViewController.swift; sourceTree = "<group>"; };
 		497706121F2B786A0061E8C1 /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
 		497706131F2B786A0061E8C1 /* OneTimeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTimeService.swift; sourceTree = "<group>"; };
@@ -157,11 +154,7 @@
 		497E92341F2AA28B000682F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497E92451F2AA28B000682F9 /* TOTPAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOTPAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		497E92491F2AA28B000682F9 /* TOTPAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPAppTests.swift; sourceTree = "<group>"; };
-		497E92581F2AA314000682F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		497E925A1F2AA314000682F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		497E925B1F2AA314000682F9 /* TOTPApp.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TOTPApp.xcassets; sourceTree = "<group>"; };
-		497E925C1F2AA314000682F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		497E925D1F2AA314000682F9 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		49A26A491F2D152C00476EC3 /* ApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		49A26A4B1F2D154C00476EC3 /* TokenListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListViewController.swift; sourceTree = "<group>"; };
 		49A26A4D1F2D156100476EC3 /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +164,8 @@
 		49A26A571F2D172700476EC3 /* PermissionsCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsCenter.swift; sourceTree = "<group>"; };
 		49A26A591F2D17BF00476EC3 /* TokenWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenWriter.swift; sourceTree = "<group>"; };
 		49A26A5B1F2D289000476EC3 /* ExtendedToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedToken.swift; sourceTree = "<group>"; };
+		49EB90661F2ED51C002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49EB90681F2ED529002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49FACFD71F2B7B7A0031186E /* Base32.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base32.framework; path = Carthage/Build/watchOS/Base32.framework; sourceTree = "<group>"; };
 		49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneTimePassword.framework; path = Carthage/Build/watchOS/OneTimePassword.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -307,11 +302,11 @@
 				49A26A561F2D16B500476EC3 /* View Controllers */,
 				49A26A531F2D166C00476EC3 /* APIs */,
 				4977060F1F2B786A0061E8C1 /* ApplicationRootViewController.swift */,
-				497706101F2B786A0061E8C1 /* TOTPEnvironmentListViewController.swift */,
 				497706111F2B786A0061E8C1 /* TOTPProvidingViewController.swift */,
 				497706121F2B786A0061E8C1 /* Permissions.swift */,
 				497706131F2B786A0061E8C1 /* OneTimeService.swift */,
 				497E92341F2AA28B000682F9 /* AppDelegate.swift */,
+				49EB90681F2ED529002C8B0F /* Info.plist */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -320,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				497E92491F2AA28B000682F9 /* TOTPAppTests.swift */,
+				49EB90661F2ED51C002C8B0F /* Info.plist */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -334,22 +330,11 @@
 		497E92551F2AA2D7000682F9 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				494F4B011F2AD3900049E310 /* Configuration */,
+				494DE6AC1F2EB07000E7A8E2 /* TOTPApp.entitlements */,
 				497E925B1F2AA314000682F9 /* TOTPApp.xcassets */,
-				497E92561F2AA314000682F9 /* Base.lproj */,
-				497E925C1F2AA314000682F9 /* Info.plist */,
-				497E925D1F2AA314000682F9 /* Tests-Info.plist */,
+				494F4B011F2AD3900049E310 /* Configuration */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		497E92561F2AA314000682F9 /* Base.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				497E92571F2AA314000682F9 /* LaunchScreen.storyboard */,
-				497E92591F2AA314000682F9 /* Main.storyboard */,
-			);
-			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 		49A26A531F2D166C00476EC3 /* APIs */ = {
@@ -483,6 +468,14 @@
 					};
 					497E92301F2AA28B000682F9 = {
 						CreatedOnToolsVersion = 9.0;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					497E92441F2AA28B000682F9 = {
 						CreatedOnToolsVersion = 9.0;
@@ -516,8 +509,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494DE6AD1F2EB36A00E7A8E2 /* Interface.storyboard in Resources */,
 				4977063C1F2B78E20061E8C1 /* WatchApp.xcassets in Resources */,
-				4977063A1F2B78E20061E8C1 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,8 +526,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				497E92631F2AA397000682F9 /* LaunchScreen.storyboard in Resources */,
-				497E92641F2AA397000682F9 /* Main.storyboard in Resources */,
 				497E92601F2AA314000682F9 /* TOTPApp.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,7 +606,6 @@
 				49A26A581F2D172700476EC3 /* PermissionsCenter.swift in Sources */,
 				49A26A4A1F2D152C00476EC3 /* ApplicationViewController.swift in Sources */,
 				49527EF71F2E3A4E0069CE18 /* WatchProcess.swift in Sources */,
-				497706161F2B786A0061E8C1 /* TOTPEnvironmentListViewController.swift in Sources */,
 				497706191F2B786A0061E8C1 /* OneTimeService.swift in Sources */,
 				49A26A5C1F2D289000476EC3 /* ExtendedToken.swift in Sources */,
 				49A26A501F2D15A600476EC3 /* InstructionsViewController.swift in Sources */,
@@ -664,22 +654,6 @@
 				497706391F2B78E20061E8C1 /* Base */,
 			);
 			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
-		497E92571F2AA314000682F9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				497E92581F2AA314000682F9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		497E92591F2AA314000682F9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				497E925A1F2AA314000682F9 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -828,7 +802,9 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 			};
 			name = Debug;
 		};
@@ -877,7 +853,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Profile;
@@ -886,16 +864,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 494F4B0C1F2AD3900049E310 /* iOS_Application.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SupportingFiles/TOTPApp.entitlements;
 				DEVELOPMENT_TEAM = 9EPD44Q626;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -905,16 +889,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 494F4B0C1F2AD3900049E310 /* iOS_Application.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SupportingFiles/TOTPApp.entitlements;
 				DEVELOPMENT_TEAM = 9EPD44Q626;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -927,8 +917,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 9EPD44Q626;
-				INFOPLIST_FILE = "SupportingFiles/Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -945,8 +935,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 9EPD44Q626;
-				INFOPLIST_FILE = "SupportingFiles/Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1009,7 +999,9 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 			};
 			name = Test;
 		};
@@ -1017,16 +1009,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 494F4B0C1F2AD3900049E310 /* iOS_Application.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SupportingFiles/TOTPApp.entitlements;
 				DEVELOPMENT_TEAM = 9EPD44Q626;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1039,8 +1037,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 9EPD44Q626;
-				INFOPLIST_FILE = "SupportingFiles/Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1140,7 +1138,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1149,16 +1149,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 494F4B0C1F2AD3900049E310 /* iOS_Application.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = SupportingFiles/TOTPApp.entitlements;
 				DEVELOPMENT_TEAM = 9EPD44Q626;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1171,8 +1177,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 9EPD44Q626;
-				INFOPLIST_FILE = "SupportingFiles/Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

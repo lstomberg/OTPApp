@@ -10,4 +10,16 @@ import UIKit
 
 class ApplicationViewController: UINavigationController {
 
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      self.view.backgroundColor = UIColor(white: 0.97, alpha: 1.0)
+
+      if TokenCenter.main.allTokens().isEmpty {
+         viewControllers = [InstructionsViewController()]
+      } else {
+         viewControllers = [TokenListViewController()]
+      }
+   }
+
+   
 }

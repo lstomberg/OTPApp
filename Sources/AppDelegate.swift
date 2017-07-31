@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
       self.window?.rootViewController = applicationViewController
       self.window?.makeKeyAndVisible()
-      //        Permissions.default.incrementLaunchCount()
       return true
    }
 
