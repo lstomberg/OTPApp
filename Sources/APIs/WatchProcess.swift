@@ -8,6 +8,7 @@
 
 import Foundation
 import WatchConnectivity
+import OneTimePassword
 
 class WatchProcess: NSObject {
    public static let `default` = WatchProcess()
@@ -65,6 +66,7 @@ extension WatchProcess {
    }
 }
 
+/// iOS
 /// WCSession is used to communicate with the AppleWatch app
 /// A WCSessionDelegate is required to activate the default WCSession
 extension WatchProcess: WCSessionDelegate {
@@ -78,9 +80,24 @@ extension WatchProcess: WCSessionDelegate {
       //TODO: should we send the tokens over every time the WatchProcess activates?  We probably need to in case users
       // purchase a watch after having a token stored
       print("WCSession activationDidCompleteWith")
-      //      updateWatch()
+
+      if #available(iOS 10, *) {
+         // iOS
+      } else {
+         // watchOS
+         if (!session.receivedApplicationContext.isEmpty) {
+            deserializeToken(fromResponse: session.receivedApplicationContext)
+         } else {
+            session.sendMessage(["kind":"token"] as [String : Any], replyHandler: { (response) in
+               self.deserializeToken(fromResponse: response)
+            }, errorHandler: { (error) in
+               print("Error: \(error)")
+            })
+         }
+      }
    }
 
+#if os(iOS)
    func sessionDidBecomeInactive(_ session: WCSession) {
       print("WCSession sessionDidBecomeInactive")
    }
@@ -88,6 +105,7 @@ extension WatchProcess: WCSessionDelegate {
    func sessionDidDeactivate(_ session: WCSession) {
       print("WCSession sessionDidDeactivate")
    }
+#endif
 
    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
       //The watch sent a message to the phone app
@@ -105,10 +123,32 @@ extension WatchProcess: WCSessionDelegate {
       
       let encodedTokenMap = makeURLTokenMap(with: tokens)
       
-      guard let data = try? JSONEncoder().encode(encodedTokenMap) else {
+      guard let data: Data = try? JSONEncoder().encode(encodedTokenMap) else {
          return
       }
       
       replyHandler([ContextKey.EncodedTokenURLToExtendedTokenMap.rawValue : data])
    }
+
+   /// watchOS
+   func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+
+      //decode data
+      guard let data = applicationContext[ContextKey.EncodedTokenURLToExtendedTokenMap.rawValue] as? Data,
+         let encodedTokenMap = try? JSONDecoder().decode(Dictionary<URL,ExtendedToken>.self, from: data) else {
+         return
+      }
+
+      //get all locally stored tokens
+      let knownTokens = TokenCenter.main.allTokens()
+
+      for (tokenURL, extendedToken) in encodedTokenMap {
+         //extendedToken : Equatable based on uuid only
+         if let _ = knownTokens.index(of: extendedToken) {
+            TokenCenter.main.update(token: extendedToken)
+         }
+         TokenCenter.main.addToken(with: tokenURL, externallyProvided: extendedToken.endpoints)
+      }
+   }
 }
+

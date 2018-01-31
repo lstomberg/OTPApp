@@ -47,7 +47,12 @@
 		49C0FC9E1F2F064C00379E0B /* updateCartfile.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49C0FC991F2F064B00379E0B /* updateCartfile.sh */; };
 		49C0FCA01F2F06F100379E0B /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C0FC9F1F2F06F100379E0B /* Diff.framework */; };
 		49C0FCA11F2F070500379E0B /* Diff.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49C0FC9F1F2F06F100379E0B /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49C0FCA21F2F156300379E0B /* TokenCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A541F2D16AA00476EC3 /* TokenCenter.swift */; };
+		49C0FCA31F2F156900379E0B /* TokenWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A591F2D17BF00476EC3 /* TokenWriter.swift */; };
+		49C0FCA41F2F156C00379E0B /* WatchProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */; };
+		49C0FCA51F2F157E00379E0B /* ExtendedToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A5B1F2D289000476EC3 /* ExtendedToken.swift */; };
 		49E567041F2B7CAB00F1F281 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977065D1F2B79530061E8C1 /* ComplicationController.swift */; };
+		49F83B831F36995000E576F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F83B821F36995000E576F3 /* LaunchScreen.storyboard */; };
 		49FACFD91F2B7B7A0031186E /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FACFD71F2B7B7A0031186E /* Base32.framework */; };
 		49FACFDA1F2B7B7A0031186E /* OneTimePassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */; };
 		49FACFDC1F2B7B8F0031186E /* Base32.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49FACFD71F2B7B7A0031186E /* Base32.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -182,6 +187,7 @@
 		49C0FC9F1F2F06F100379E0B /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
 		49EB90661F2ED51C002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EB90681F2ED529002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F83B821F36995000E576F3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49FACFD71F2B7B7A0031186E /* Base32.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base32.framework; path = Carthage/Build/watchOS/Base32.framework; sourceTree = "<group>"; };
 		49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneTimePassword.framework; path = Carthage/Build/watchOS/OneTimePassword.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -353,6 +359,7 @@
 		497E92551F2AA2D7000682F9 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				49F83B821F36995000E576F3 /* LaunchScreen.storyboard */,
 				494DE6AC1F2EB07000E7A8E2 /* TOTPApp.entitlements */,
 				497E925B1F2AA314000682F9 /* TOTPApp.xcassets */,
 				494F4B011F2AD3900049E310 /* Configuration */,
@@ -554,6 +561,7 @@
 				49C0FC9E1F2F064C00379E0B /* updateCartfile.sh in Resources */,
 				497E92601F2AA314000682F9 /* TOTPApp.xcassets in Resources */,
 				49C0FC9D1F2F064C00379E0B /* README.md in Resources */,
+				49F83B831F36995000E576F3 /* LaunchScreen.storyboard in Resources */,
 				49C0FC9C1F2F064C00379E0B /* Cartfile in Resources */,
 				49C0FC9A1F2F064C00379E0B /* Cartfile.resolved in Resources */,
 			);
@@ -618,10 +626,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C0FCA51F2F157E00379E0B /* ExtendedToken.swift in Sources */,
 				4977064E1F2B78E20061E8C1 /* NotificationController.swift in Sources */,
 				49E567041F2B7CAB00F1F281 /* ComplicationController.swift in Sources */,
+				49C0FCA31F2F156900379E0B /* TokenWriter.swift in Sources */,
 				4977064C1F2B78E20061E8C1 /* ExtensionDelegate.swift in Sources */,
+				49C0FCA41F2F156C00379E0B /* WatchProcess.swift in Sources */,
 				4977064A1F2B78E20061E8C1 /* InterfaceController.swift in Sources */,
+				49C0FCA21F2F156300379E0B /* TokenCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

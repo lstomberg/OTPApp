@@ -57,13 +57,25 @@ struct TokenCenter {
       let localName = persistentToken.token.name
 
       let extendedToken = ExtendedToken(localName: localName, endpoints: endpoints, uuid: persistentToken.identifier.base64EncodedString())
-      TokenWriter.local.add(extendedToken)
+      ExtendedTokenWriter.local.add(extendedToken)
+      NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
+   }
+
+   public func addToken(with url: URL, externallyProvided endpoints:[ExtendedToken.Endpoint : ExtendedToken.WebService]) {
+      guard let token = Token(url: url),
+         let persistentToken = try? Keychain.sharedInstance.add(token) else {
+            return
+      }
+      let localName = persistentToken.token.name
+
+      let extendedToken = ExtendedToken(localName: localName, endpoints: endpoints, uuid: persistentToken.identifier.base64EncodedString())
+      ExtendedTokenWriter.local.add(extendedToken)
       NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
    }
 
    /// Updates the localName and endpoints for an ExtendedToken based on its uuid
    public func update(token: ExtendedToken) {
-      TokenWriter.local.update(token)
+      ExtendedTokenWriter.local.update(token)
       NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
    }
 
@@ -71,7 +83,7 @@ struct TokenCenter {
    /// This action is non-reversable
    public func remove(token: ExtendedToken) {
       try? Keychain.sharedInstance.delete(token.token)
-      TokenWriter.local.delete(token)
+      ExtendedTokenWriter.local.delete(token)
       NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
    }
 
@@ -80,7 +92,7 @@ struct TokenCenter {
    /// stored in the Keychain.  If there is not, it is not returned in the set
    public func allTokens() -> [ExtendedToken] {
       let dict = UserDefaults.standard.dictionaryRepresentation()
-      let tokenValues = dict.flatMap { TokenWriter.isExtendedTokenKey($0.key) ? $0.value as? Data : nil }
+      let tokenValues = dict.flatMap { ExtendedTokenWriter.isExtendedTokenKey($0.key) ? $0.value as? Data : nil }
       let tokens: [ExtendedToken] = tokenValues.flatMap { try? JSONDecoder().decode(ExtendedToken.self, from: $0) }
 
       //if we dont have an associated PersistentToken for some reason, dont show this token and log
@@ -145,151 +157,3 @@ private extension URL {
       return item?.value
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//protocol URLConvertible {
-//   init?(url: URL)
-//}
-//
-//extension OneTimePassword.Token : URLConvertible {
-//   init?(url: URL) {
-//      self.init(url: url)
-//   }
-//}
-//
-//extension ExtendedToken : URLConvertible {
-//   init?(url: URL) {
-//
-//   }
-//}
-//
-//   private func makeToken(from url: URL) -> (OneTimePassword.Token,Token)? {
-//      /*
-//       URI scheme: otpauth://TYPE/LABEL?PARAMETERS
-//
-//       TYPE: (totp) or (hotp)
-//       LABEL: (accountname) or (issuer\:*\saccountname) where \: is one of [:,%3A] and \s is %20
-//       PARAMETERS:
-//       secret     Required          Base32 encoded
-//       issuer     Recommended       URL encoded, equal to LABEL if both are present
-//       algorithm  Optional,#sha1    SHA1, SHA256, SHA512
-//       digits     Optional,#6       6-8 digit output
-//       counter    hotp-Required     Initial HOTP counter
-//       period     totp-Optional,#30 TOTP time step in seconds
-//       */
-//   }
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//      let type = url.host
-//      let labelValue: String? = url.pathComponents.first
-//      let secretValue: String? = url.queryValue(for: "secret")
-//      let issuerValue: String? = url.queryValue(for: "issuer")
-//      let algorithmValue: String = url.queryValue(for: "algorithm") ?? "sha1"
-//      let digitsValue: String = url.queryValue(for: "digits") ?? "6"
-//      let periodValue: String = url.queryValue(for: "period") ?? "30"
-
-//      guard type == "totp",
-//         let label = labelValue,
-//         let (accountName, issuerFromLabel) = parse(LABEL: label),
-//         let secret = secretValue,
-//         let interval = Double(periodValue),
-////         let method = Token.Generator.HashMethod(rawValue: algorithmValue),
-//         let digits = Int(digitsValue),
-//         let issuer = issuerFromLabel ?? issuerValue,
-//         (issuerFromLabel == nil || issuerFromLabel == issuer),
-//         (issuerValue == nil || issuerValue == issuer) else {
-//            return nil
-//      }
-
-//      var endpoints: [Token.Endpoint:Token.WebService] = [:]
-//      if let registration = url.queryValue(for: "registration"),
-//         let URL = URL(string: registration) {
-//         endpoints[.registration] = Token.WebService(url: URL)
-//      }
-//      if let ack = url.queryValue(for: "ack"),
-//         let URL = URL(string: ack) {
-//         endpoints[.ack] = Token.WebService(url: URL)
-//      }
-//
-//      let algorithm: Generator.Algorithm
-//      switch(algorithmValue) {
-//      case "sha1": algorithm = .sha1
-//      case "sha256": algorithm = .sha256
-//      case "sha512": algorithm = .sha512
-//      default: return nil
-//      }
-
-//OneTimePassword.Token(url: url)
-
-//      let generator = OneTimePassword.Generator(factor: .timer(period: interval), secret: Data(base32String: secret.base32()) , algorithm: algorithm, digits: digits)
-
-
-
-
-//      let generator = Token.Generator(interval: interval, method: method, digits: digits, secret: secret)
-//      let origin = Token.Organization(name: issuer, accountName: accountName)
-//      let token = Token(name: "Unnamed", issuer: origin, generator: generator, endpoints: endpoints, uuid: UUID().uuidString)
-//return token
-//}
-//   private func parse(LABEL label: String) -> (String,String?)? {
-//      guard let label = label.removingPercentEncoding else {
-//         return nil
-//      }
-//
-//      let pieces = label.components(separatedBy: ":")
-//      guard !pieces.isEmpty, pieces.count < 3 else {
-//         return nil
-//      }
-//
-//      let accountName = pieces.last!.trimmingCharacters(in: .whitespaces);
-//      let issuer = (pieces.count == 2) ? pieces[0] : nil
-//      return (accountName, issuer)
-//   }
-//}
-//
-
-
-
-
-
-
-

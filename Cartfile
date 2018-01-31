@@ -1,3 +1,2 @@
 github "mattrubin/OneTimePassword" ~> 3.0
 github "nickoneill/PermissionScope" ~> 1.0
-github "wokalski/Diff.swift" "swift-4.0"

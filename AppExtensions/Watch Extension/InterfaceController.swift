@@ -55,16 +55,7 @@ class InterfaceController: WKInterfaceController {
             updateView()
         }
     }
-    
-    var watchSession: WCSession? {
-        didSet {
-            if let session = watchSession {
-                session.delegate = self
-                session.activate()
-            }
-        }
-    }
-    
+
     override public init() {
         super.init()
         _token = (try? Keychain.sharedInstance.allPersistentTokens())?.first
@@ -77,7 +68,6 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         updateView()
-        watchSession = WCSession.default
     }
     
     private func updateView() {
@@ -92,42 +82,3 @@ class InterfaceController: WKInterfaceController {
     }
 }
 
-extension InterfaceController: WCSessionDelegate {
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("Session activation did complete")
-        
-        if (!session.receivedApplicationContext.isEmpty) {
-            deserializeToken(fromResponse: session.receivedApplicationContext)
-        } else {
-            session.sendMessage(["kind":"token"] as [String : Any], replyHandler: { (response) in
-                self.deserializeToken(fromResponse: response)
-            }, errorHandler: { (error) in
-                print("Error: \(error)")
-            })
-        }
-    }
-    
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        print("watch received app context: \(applicationContext)")
-        deserializeToken(fromResponse: applicationContext)
-    }
-    
-    private func deserializeToken(fromResponse response: [String:Any]) {
-        guard let name = response["name"] as? String, let issuer = response["issuer"] as? String, let secretData = response["secret"] as? Data else {
-            return
-        }
-        
-        print("deserializing token")
-        guard let generator = Generator(
-            factor: .timer(period: 30),
-            secret: secretData,
-            algorithm: .sha1,
-            digits: 6) else {
-                print("Invalid generator parameters")
-                return
-        }
-        
-        let tokenProperty = Token(name: name, issuer: issuer, generator: generator)
-        token = tokenProperty
-    }
-}
