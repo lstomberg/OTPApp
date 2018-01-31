@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Diff.Swift
+import Differ
 
 class ApplicationViewController: UINavigationController {
    

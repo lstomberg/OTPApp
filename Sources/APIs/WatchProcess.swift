@@ -85,15 +85,16 @@ extension WatchProcess: WCSessionDelegate {
          // iOS
       } else {
          // watchOS
-         if (!session.receivedApplicationContext.isEmpty) {
-            deserializeToken(fromResponse: session.receivedApplicationContext)
-         } else {
-            session.sendMessage(["kind":"token"] as [String : Any], replyHandler: { (response) in
-               self.deserializeToken(fromResponse: response)
-            }, errorHandler: { (error) in
-               print("Error: \(error)")
-            })
-         }
+         //LWS 1/31/2018 - commenting out to get to compile for iOS in Xcode 9.2
+//         if (!session.receivedApplicationContext.isEmpty) {
+//            deserializeToken(fromResponse: session.receivedApplicationContext)
+//         } else {
+//            session.sendMessage(["kind":"token"] as [String : Any], replyHandler: { (response) in
+//               self.deserializeToken(fromResponse: response)
+//            }, errorHandler: { (error) in
+//               print("Error: \(error)")
+//            })
+//         }
       }
    }
 

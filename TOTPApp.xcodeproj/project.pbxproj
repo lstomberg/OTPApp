@@ -13,6 +13,9 @@
 		492244501F2AA86B00310B89 /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922444D1F2AA86B00310B89 /* PermissionScope.framework */; };
 		494DE6AD1F2EB36A00E7A8E2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497706381F2B78E20061E8C1 /* Interface.storyboard */; };
 		49527EF71F2E3A4E0069CE18 /* WatchProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */; };
+		4966667E202261A90074E682 /* Differ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4966667D202261A90074E682 /* Differ.framework */; };
+		4966667F202261AE0074E682 /* Differ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4966667D202261A90074E682 /* Differ.framework */; };
+		49666680202261AE0074E682 /* Differ.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4966667D202261A90074E682 /* Differ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497450A41F2AA95900BEEFE9 /* Base32.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444B1F2AA86B00310B89 /* Base32.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497450A51F2AA95900BEEFE9 /* OneTimePassword.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444C1F2AA86B00310B89 /* OneTimePassword.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497450A61F2AA95900BEEFE9 /* PermissionScope.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444D1F2AA86B00310B89 /* PermissionScope.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -45,8 +48,6 @@
 		49C0FC9C1F2F064C00379E0B /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 49C0FC971F2F064B00379E0B /* Cartfile */; };
 		49C0FC9D1F2F064C00379E0B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49C0FC981F2F064B00379E0B /* README.md */; };
 		49C0FC9E1F2F064C00379E0B /* updateCartfile.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49C0FC991F2F064B00379E0B /* updateCartfile.sh */; };
-		49C0FCA01F2F06F100379E0B /* Diff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C0FC9F1F2F06F100379E0B /* Diff.framework */; };
-		49C0FCA11F2F070500379E0B /* Diff.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49C0FC9F1F2F06F100379E0B /* Diff.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49C0FCA21F2F156300379E0B /* TokenCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A541F2D16AA00476EC3 /* TokenCenter.swift */; };
 		49C0FCA31F2F156900379E0B /* TokenWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A591F2D17BF00476EC3 /* TokenWriter.swift */; };
 		49C0FCA41F2F156C00379E0B /* WatchProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */; };
@@ -90,7 +91,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				49C0FCA11F2F070500379E0B /* Diff.framework in CopyFiles */,
+				49666680202261AE0074E682 /* Differ.framework in CopyFiles */,
 				497450A41F2AA95900BEEFE9 /* Base32.framework in CopyFiles */,
 				497450A51F2AA95900BEEFE9 /* OneTimePassword.framework in CopyFiles */,
 				497450A61F2AA95900BEEFE9 /* PermissionScope.framework in CopyFiles */,
@@ -147,6 +148,7 @@
 		494F4B0E1F2AD3900049E310 /* watchOS_Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = watchOS_Application.xcconfig; sourceTree = "<group>"; };
 		494F4B0F1F2AD3900049E310 /* watchOS_Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = watchOS_Framework.xcconfig; sourceTree = "<group>"; };
 		49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProcess.swift; sourceTree = "<group>"; };
+		4966667D202261A90074E682 /* Differ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differ.framework; path = Carthage/Build/iOS/Differ.framework; sourceTree = "<group>"; };
 		4977060F1F2B786A0061E8C1 /* ApplicationRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationRootViewController.swift; sourceTree = "<group>"; };
 		497706111F2B786A0061E8C1 /* TOTPProvidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOTPProvidingViewController.swift; sourceTree = "<group>"; };
 		497706121F2B786A0061E8C1 /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
@@ -184,7 +186,6 @@
 		49C0FC971F2F064B00379E0B /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		49C0FC981F2F064B00379E0B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		49C0FC991F2F064B00379E0B /* updateCartfile.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = updateCartfile.sh; sourceTree = SOURCE_ROOT; };
-		49C0FC9F1F2F06F100379E0B /* Diff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Diff.framework; path = Carthage/Build/iOS/Diff.framework; sourceTree = "<group>"; };
 		49EB90661F2ED51C002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EB90681F2ED529002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49F83B821F36995000E576F3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -206,10 +207,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4966667E202261A90074E682 /* Differ.framework in Frameworks */,
+				4966667F202261AE0074E682 /* Differ.framework in Frameworks */,
 				4922444E1F2AA86B00310B89 /* Base32.framework in Frameworks */,
 				4922444F1F2AA86B00310B89 /* OneTimePassword.framework in Frameworks */,
 				492244501F2AA86B00310B89 /* PermissionScope.framework in Frameworks */,
-				49C0FCA01F2F06F100379E0B /* Diff.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +228,7 @@
 		4922444A1F2AA86B00310B89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49C0FC9F1F2F06F100379E0B /* Diff.framework */,
+				4966667D202261A90074E682 /* Differ.framework */,
 				49FACFD71F2B7B7A0031186E /* Base32.framework */,
 				49FACFD81F2B7B7A0031186E /* OneTimePassword.framework */,
 				4922444B1F2AA86B00310B89 /* Base32.framework */,
@@ -906,7 +908,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 494F4B0C1F2AD3900049E310 /* iOS_Application.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = SupportingFiles/TOTPApp.entitlements;
@@ -931,7 +932,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 494F4B0C1F2AD3900049E310 /* iOS_Application.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = SupportingFiles/TOTPApp.entitlements;
@@ -1051,7 +1051,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 494F4B0C1F2AD3900049E310 /* iOS_Application.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = SupportingFiles/TOTPApp.entitlements;
@@ -1191,7 +1190,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 494F4B0C1F2AD3900049E310 /* iOS_Application.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = SupportingFiles/TOTPApp.entitlements;

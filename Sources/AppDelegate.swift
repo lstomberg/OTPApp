@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    //push notification must include web service to hit for verification + OTP: we send TOTP
 
    open func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-      TokenCenter.main.addToken(with: url)}
+      TokenCenter.main.addToken(with: url)
       return true
    }
 }

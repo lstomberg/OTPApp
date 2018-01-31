@@ -1,3 +1,4 @@
 github "mattrubin/Base32" "1.1.2+carthage"
 github "mattrubin/OneTimePassword" "3.0"
 github "nickoneill/PermissionScope" "1.1.1"
+github "tonyarnold/Differ" "1.0.3"
