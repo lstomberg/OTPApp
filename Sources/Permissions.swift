@@ -10,23 +10,24 @@ import UIKit
 import PermissionScope
 import UserNotifications
 
+
+
+public extension NSNotification.Name {
+   public static let PermissionsDidUpdateNotificationToken: NSNotification.Name = NSNotification.Name("PermissionsDidUpdateNotificationToken")
+}
+
 class Permissions: NSObject {
     public static let `default` = Permissions()
-    
-    public var webserviceAuthToken: String?
-    
-    fileprivate var deviceNotificationToken: Data?
+    var deviceNotificationToken: String?
     
     let notificationPermissions: PermissionScope = {
-        let permission = PermissionScope()
-        permission.addPermission(NotificationsPermission(notificationCategories: nil), message: "We use this to send you\r\nspam and love notes")
-        return permission
+      let permission = PermissionScope()
+      permission.addPermission(NotificationsPermission(notificationCategories: nil), message: "We use this to send you\r\nspam and love notes")
+      return permission
     }()
     
     var hasAllPermissions: Bool {
-        get {
-            return (notificationPermissions.statusNotifications() == .authorized)
-        }
+      return (notificationPermissions.statusNotifications() == .authorized)
     }
     
     public func requestPermissions() {
@@ -38,49 +39,25 @@ class Permissions: NSObject {
             }
         }, cancelled: nil)
     }
-    
-    var applicationLaunchCount: Int {
-        get {
-            return UserDefaults.standard.integer(forKey: "ApplicationLaunchCount")
-        }
-        set {
-            UserDefaults.standard.set(applicationLaunchCount+1, forKey: "ApplicationLaunchCount")
-            UserDefaults.standard.synchronize()
-        }
-    }
-    
-    public func incrementLaunchCount() {
-        applicationLaunchCount += 1
-        switch notificationPermissions.statusNotifications() {
-        case .unknown:
-            requestPermissions()
-            break
-            
-        case .disabled:
-            fallthrough
-        case .unauthorized:
-            if (applicationLaunchCount % 8 == 0) {
-                requestPermissions()
-            }
-            break
-            
-        case .authorized:
-            break
-        }
-        
-    }
 }
 
 extension AppDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Permissions.default.deviceNotificationToken = deviceToken
-    }
-}
+      let tokenParts = deviceToken.map { data -> String in
+         return String(format: "%02.2hhx", data)
+      }
 
-extension OneTimeService {
-    func deviceNotificationToken() -> Data? {
-        return Permissions.default.deviceNotificationToken
+      let token = tokenParts.joined()
+      print("Device Token: \(token)")
+      Permissions.default.deviceNotificationToken = token
+
+      NotificationCenter.default.post(name: .PermissionsDidUpdateNotificationToken, object: nil)
     }
+
+
+   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+      print("Failed to register: \(error)")
+   }
 }
 
 

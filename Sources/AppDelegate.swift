@@ -39,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       self.window?.rootViewController = applicationViewController
       self.window?.makeKeyAndVisible()
       self.window?.tintColor = UIColor(displayP3Red: 0.204, green: 0.596, blue: 0.859, alpha: 1.0)
+
+      if let payload = launchOptions?[.remoteNotification] as? [String: AnyObject] {
+         handleAnyPendingNotification(payload: payload)
+      }
       return true
    }
 
@@ -54,8 +58,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    //push notification must include web service to hit for verification + OTP: we send TOTP
 
    open func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-      TokenCenter.main.addToken(with: url)
+      guard let (optionalURL, optionalToken, addTokenNotification) = TokenCenter.main.addToken(with: url) else {
+         return false
+      }
+
+      if let registrationURL = optionalURL,
+         let authToken = optionalToken {
+         let entry = OneTimeService.AuthStore.Entry(authorizationToken: authToken, webserviceURL: registrationURL)
+         OneTimeService.temporaryAuthStore.add(entry)
+      }
+
+      addTokenNotification.post()
       return true
+   }
+
+   open func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+      guard let payload = userInfo["aps"] as? [String: AnyObject] else { return }
+      handleAnyPendingNotification(payload: payload)
+   }
+}
+
+extension AppDelegate {
+   func handleAnyPendingNotification(payload: [String: AnyObject]) {
+      //handle saving webserviceAuthToken??
    }
 }
 

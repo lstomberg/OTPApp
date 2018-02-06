@@ -8,6 +8,7 @@
 
 import UIKit
 import Differ
+import UserNotifications
 
 class ApplicationViewController: UINavigationController {
    
@@ -20,15 +21,18 @@ class ApplicationViewController: UINavigationController {
       self.view.backgroundColor = UIColor(white: 0.97, alpha: 1.0)
       
       configureViewControllers()
+      registerForPushNotifications()
 
       NotificationCenter.default.addObserver(self, selector: #selector(configureViewControllers), name: .TokenCenterDidUpdateTokens, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(registerForPushNotifications), name: .TokenCenterDidUpdateTokens, object: nil)
       NotificationCenter.default.addObserver(self, selector: #selector(updateTokenCenter), name: .TokenListViewControllerDidChangeTokens, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(callPushNotificationRegistrationService), name: .PermissionsDidUpdateNotificationToken, object: nil)
    }
 }
 
 /// Private methods extension
 extension ApplicationViewController {
-   
+
    @objc
    func configureViewControllers() {
       let tokens = TokenCenter.main.allTokens()
@@ -44,6 +48,22 @@ extension ApplicationViewController {
       }
       
       tokenList.tokens = tokens
+   }
+
+   @objc
+   func registerForPushNotifications() {
+      let tokens = TokenCenter.main.allTokens()
+
+      guard !tokens.isEmpty else {
+         return
+      }
+
+      guard Permissions.default.hasAllPermissions else {
+         Permissions.default.requestPermissions()
+         return
+      }
+
+      UIApplication.shared.registerForRemoteNotifications()
    }
    
    @objc
@@ -65,6 +85,36 @@ extension ApplicationViewController {
          TokenCenter.main.remove(token: from[index])
       case .insert(at: _):
          fatalError("UNDEVELOPED SAFE-GUARD: Inserting from the view has not been implemented")
+      }
+   }
+
+   @objc
+   func callPushNotificationRegistrationService() {
+      guard let onlyToken = TokenCenter.main.allTokens().first,
+         let pushToken = Permissions.default.deviceNotificationToken,
+         let serverURL = onlyToken.endpoints[.registration]?.url else {
+            return
+      }
+
+      let serverGUID = String(onlyToken.hashValue)
+      guard let service = OneTimeService.registration(serverURL: serverURL, serverGUID: serverGUID, pushNotificationToken: pushToken) else {
+         let dict: [String:Any] = ["serverURL": serverURL, "serverGUID": serverGUID, "pushToken": pushToken]
+         print ("Unable to call service with parameters:\n\(dict as AnyObject)\nIf parameters look good, you probably didn't have a valid onetime-service-token")
+         return
+      }
+      service.execute()
+   }
+}
+
+//debugging
+extension ApplicationViewController {
+   // Enable detection of shake motion
+   override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+      if motion == .motionShake {
+         print("Why are you shaking me?")
+         for extendedToken in TokenCenter.main.allTokens() {
+            TokenCenter.main.remove(token: extendedToken)
+         }
       }
    }
 }

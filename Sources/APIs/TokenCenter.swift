@@ -46,20 +46,33 @@ struct TokenCenter {
    ///         period     totp-Optional,#30 TOTP time step in seconds
    ///
    /// Additionally, the additional parameters are also supported
-   ///         ack          Optional    URL endpoint to acknowledge a push notification received
-   ///         registration Optional    URL endpoint to register with Epic server our push notification ID
-   public func addToken(with url: URL) {
+   ///         ack               Optional    URL endpoint to acknowledge a push notification received
+   ///         registration      Optional    URL endpoint to register with Epic server our push notification ID
+   ///         registrationToken Optional    One time, short lived token to use with registration service
+   ///
+   /// Returns the registration and registrationToken if possible
+   ///
+   public func addToken(with url: URL) -> (URL?,String?,AddTokenNotification)? {
       guard let token = Token(url: url),
          let persistentToken = try? Keychain.sharedInstance.add(token) else {
-         return
+         return nil
       }
       let endpoints = parseEndpoints(in: url)
       let localName = persistentToken.token.name
 
       let extendedToken = ExtendedToken(localName: localName, endpoints: endpoints, uuid: persistentToken.identifier.base64EncodedString())
-      ExtendedTokenWriter.local.add(extendedToken)
-      NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
+      _ = ExtendedTokenWriter.local.add(extendedToken)
+
+      return (endpoints[.registration]?.url, url.queryValue(for: "registrationToken"), AddTokenNotification())
    }
+
+
+   struct AddTokenNotification {
+      public func post() {
+         NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
+      }
+   }
+
 
    public func addToken(with url: URL, externallyProvided endpoints:[ExtendedToken.Endpoint : ExtendedToken.WebService]) {
       guard let token = Token(url: url),
@@ -69,13 +82,13 @@ struct TokenCenter {
       let localName = persistentToken.token.name
 
       let extendedToken = ExtendedToken(localName: localName, endpoints: endpoints, uuid: persistentToken.identifier.base64EncodedString())
-      ExtendedTokenWriter.local.add(extendedToken)
+      _ = ExtendedTokenWriter.local.add(extendedToken)
       NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
    }
 
    /// Updates the localName and endpoints for an ExtendedToken based on its uuid
    public func update(token: ExtendedToken) {
-      ExtendedTokenWriter.local.update(token)
+      _ = ExtendedTokenWriter.local.update(token)
       NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
    }
 
@@ -83,7 +96,7 @@ struct TokenCenter {
    /// This action is non-reversable
    public func remove(token: ExtendedToken) {
       try? Keychain.sharedInstance.delete(token.token)
-      ExtendedTokenWriter.local.delete(token)
+      _ = ExtendedTokenWriter.local.delete(token)
       NotificationCenter.default.post(name: .TokenCenterDidUpdateTokens, object: nil)
    }
 
@@ -110,7 +123,6 @@ struct TokenCenter {
 }
 
 public extension NSNotification.Name {
-   
    public static let TokenCenterDidUpdateTokens: NSNotification.Name = NSNotification.Name("TokenCenterDidUpdateTokens")
 }
 
@@ -146,6 +158,7 @@ private func parseEndpoints(in url: URL) -> [ExtendedToken.Endpoint : ExtendedTo
 
    return endpoints
 }
+
 
 /// Private URL extension to easily return the value of a queryItem key
 /// For reference, the URL structure is SCHEME://HOST/PATH?queryItemKEY=VALUE&queryItemKEY2=VALUE

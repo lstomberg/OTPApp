@@ -172,6 +172,7 @@
 		497E92451F2AA28B000682F9 /* TOTPAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOTPAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		497E92491F2AA28B000682F9 /* TOTPAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPAppTests.swift; sourceTree = "<group>"; };
 		497E925B1F2AA314000682F9 /* TOTPApp.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TOTPApp.xcassets; sourceTree = "<group>"; };
+		498247D5202A1788002B4263 /* Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Watch Extension.entitlements"; sourceTree = "<group>"; };
 		49A26A491F2D152C00476EC3 /* ApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		49A26A4B1F2D154C00476EC3 /* TokenListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListViewController.swift; sourceTree = "<group>"; };
 		49A26A4D1F2D156100476EC3 /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +299,7 @@
 		497E92281F2AA28B000682F9 = {
 			isa = PBXGroup;
 			children = (
+				498247D5202A1788002B4263 /* Watch Extension.entitlements */,
 				4977061B1F2B788A0061E8C1 /* AppExtensions */,
 				497E92331F2AA28B000682F9 /* Sources */,
 				497E92481F2AA28B000682F9 /* Tests */,
@@ -498,11 +500,22 @@
 					497706411F2B78E20061E8C1 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					497E92301F2AA28B000682F9 = {
 						CreatedOnToolsVersion = 9.0;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.NearFieldCommunicationTagReading = {
 								enabled = 1;
 							};
 							com.apple.Push = {
@@ -709,6 +722,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension.entitlements";
 				DEVELOPMENT_TEAM = 9EPD44Q626;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -717,7 +731,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				INFOPLIST_FILE = "$(SRCROOT)/AppExtensions/Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -733,6 +747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension.entitlements";
 				DEVELOPMENT_TEAM = 9EPD44Q626;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -741,7 +756,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				INFOPLIST_FILE = "$(SRCROOT)/AppExtensions/Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -762,7 +777,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/AppExtensions/Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -783,7 +798,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/AppExtensions/Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -919,7 +934,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
@@ -943,7 +958,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
@@ -1062,7 +1077,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
@@ -1100,7 +1115,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/AppExtensions/Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1116,6 +1131,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension.entitlements";
 				DEVELOPMENT_TEAM = 9EPD44Q626;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1124,7 +1140,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				INFOPLIST_FILE = "$(SRCROOT)/AppExtensions/Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1201,7 +1217,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
@@ -1239,7 +1255,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/AppExtensions/Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1255,6 +1271,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension.entitlements";
 				DEVELOPMENT_TEAM = 9EPD44Q626;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1263,7 +1280,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				INFOPLIST_FILE = "$(SRCROOT)/AppExtensions/Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.epic.TOTPApp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.epic.authenticator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

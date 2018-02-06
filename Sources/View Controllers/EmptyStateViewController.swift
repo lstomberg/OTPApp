@@ -29,7 +29,17 @@ class EmptyStateViewController : UIViewController {
 extension EmptyStateViewController {
    @objc
    func helpButtonTapped() {
-      guard let url = URL(string: "otpauth://totp/Epic:lstomber?secret=JBSWY3DPEHPK3PXP&issuer=Epic&digits=8&period=60&algorithm=SHA512&ack=someACK&registration=someREG") else {
+      let ackURL = "THIS_IS_ACK_URL"
+      let registrationURL = "THIS_IS_REGISTRATION_URL"
+      let registrationToken = "THIS_IS_REGISTRATION_TOKEN"
+      let secret = "JBSWY3DPEHPK3PXP"
+      let issuer = "Epic"
+      let digits = "8"
+      let period = "60"
+      let algorithm = "SHA512"
+      let organization = "Epic"
+      let username = "lstomber"
+      guard let url = URL(string: "otpauth://totp/\(organization):\(username)?secret=\(secret)&issuer=\(issuer)&digits=\(digits)&period=\(period)&algorithm=\(algorithm)&ack=\(ackURL)&registration=\(registrationURL)&registrationToken=\(registrationToken)") else {
          return
       }
       
