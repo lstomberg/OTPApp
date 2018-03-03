@@ -51,6 +51,10 @@
 		49C0FCA31F2F156900379E0B /* TokenWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A591F2D17BF00476EC3 /* TokenWriter.swift */; };
 		49C0FCA41F2F156C00379E0B /* WatchProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */; };
 		49C0FCA51F2F157E00379E0B /* ExtendedToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A26A5B1F2D289000476EC3 /* ExtendedToken.swift */; };
+		49DFC2BA204B15B300A81B84 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DFC2B9204B15B300A81B84 /* PushNotification.swift */; };
+		49DFC2BB204B15B300A81B84 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DFC2B9204B15B300A81B84 /* PushNotification.swift */; };
+		49DFC2BD204B17CA00A81B84 /* CodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DFC2BC204B17CA00A81B84 /* CodableExtension.swift */; };
+		49DFC2BE204B17CA00A81B84 /* CodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DFC2BC204B17CA00A81B84 /* CodableExtension.swift */; };
 		49E567041F2B7CAB00F1F281 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4977065D1F2B79530061E8C1 /* ComplicationController.swift */; };
 		49F83B831F36995000E576F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F83B821F36995000E576F3 /* LaunchScreen.storyboard */; };
 		49FACFD91F2B7B7A0031186E /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FACFD71F2B7B7A0031186E /* Base32.framework */; };
@@ -186,6 +190,8 @@
 		49C0FC971F2F064B00379E0B /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		49C0FC981F2F064B00379E0B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		49C0FC991F2F064B00379E0B /* updateCartfile.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = updateCartfile.sh; sourceTree = SOURCE_ROOT; };
+		49DFC2B9204B15B300A81B84 /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
+		49DFC2BC204B17CA00A81B84 /* CodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableExtension.swift; sourceTree = "<group>"; };
 		49EB90661F2ED51C002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EB90681F2ED529002C8B0F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49F83B821F36995000E576F3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -398,6 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				49A26A5B1F2D289000476EC3 /* ExtendedToken.swift */,
+				49DFC2B9204B15B300A81B84 /* PushNotification.swift */,
+				49DFC2BC204B17CA00A81B84 /* CodableExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -643,8 +651,10 @@
 				4977064E1F2B78E20061E8C1 /* NotificationController.swift in Sources */,
 				49E567041F2B7CAB00F1F281 /* ComplicationController.swift in Sources */,
 				49C0FCA31F2F156900379E0B /* TokenWriter.swift in Sources */,
+				49DFC2BE204B17CA00A81B84 /* CodableExtension.swift in Sources */,
 				4977064C1F2B78E20061E8C1 /* ExtensionDelegate.swift in Sources */,
 				49C0FCA41F2F156C00379E0B /* WatchProcess.swift in Sources */,
+				49DFC2BB204B15B300A81B84 /* PushNotification.swift in Sources */,
 				4977064A1F2B78E20061E8C1 /* InterfaceController.swift in Sources */,
 				49C0FCA21F2F156300379E0B /* TokenCenter.swift in Sources */,
 			);
@@ -659,7 +669,9 @@
 				49A26A521F2D166800476EC3 /* ServiceCaller.swift in Sources */,
 				49A26A581F2D172700476EC3 /* PermissionsCenter.swift in Sources */,
 				49A26A4A1F2D152C00476EC3 /* ApplicationViewController.swift in Sources */,
+				49DFC2BD204B17CA00A81B84 /* CodableExtension.swift in Sources */,
 				49527EF71F2E3A4E0069CE18 /* WatchProcess.swift in Sources */,
+				49DFC2BA204B15B300A81B84 /* PushNotification.swift in Sources */,
 				497706191F2B786A0061E8C1 /* OneTimeService.swift in Sources */,
 				49A26A5C1F2D289000476EC3 /* ExtendedToken.swift in Sources */,
 				49A26A501F2D15A600476EC3 /* InstructionsViewController.swift in Sources */,

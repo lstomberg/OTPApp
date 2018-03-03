@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       self.window?.tintColor = UIColor(displayP3Red: 0.204, green: 0.596, blue: 0.859, alpha: 1.0)
 
       if let payload = launchOptions?[.remoteNotification] as? [String: AnyObject] {
-         handleAnyPendingNotification(payload: payload)
+         handleNotification(payload: payload)
       }
       return true
    }
@@ -69,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          return false
       }
 
-
       if let registrationURL = optionalURL,
          let authToken = optionalToken {
          let entry = OneTimeService.AuthStore.Entry(authorizationToken: authToken, webserviceURL: registrationURL)
@@ -82,13 +81,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
    open func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
       guard let payload = userInfo["aps"] as? [String: AnyObject] else { return }
-      handleAnyPendingNotification(payload: payload)
+      handleNotification(payload: payload)
    }
 }
 
 extension AppDelegate {
-   func handleAnyPendingNotification(payload: [String: AnyObject]) {
-      //handle saving webserviceAuthToken??
+   func handleNotification(payload: [String: AnyObject]) {
+
+      // => deserialize notification
+      //
+      guard let data = try? payload.encodeJSON(),
+         let notification = try? PushNotification.decode(fromJSON: data) else {
+            print ("Error serializing notification payload: \(payload)")
+            return
+      }
+
+      // => determine endpoint
+      //
+      let extendedToken = TokenCenter.main.allTokens().first() { (token) -> Bool in
+         return token.uuid == notification.environmentGUID
+      }
+
+      guard let ackURL = notification.ackURL() ?? extendedToken?.endpoints[.ack]?.url else {
+         print ("No valid ack URL anywhere!")
+         return
+      }
+
+      // => Store auth token
+      //
+      let entry = OneTimeService.AuthStore.Entry(authorizationToken: notification.oAuth2Token, webserviceURL: ackURL)
+      OneTimeService.temporaryAuthStore.add(entry)
+
+      // => Alert
+      //
+      let environmentName = extendedToken?.localName ?? "\"Unknown workstation\""
+      let alertController = UIAlertController(title: "Authentication Request", message: "Did you just try logging in to \(environmentName)?", preferredStyle: .alert)
+
+      // => Decline action
+      //
+      alertController.addAction(UIAlertAction(title: "Decline", style: .destructive, handler: { _ in
+         if let service = OneTimeService.response(serverURL: ackURL, response: .decline) {
+            service.execute()
+         }
+      }))
+
+      // => Accept action
+      //
+      alertController.addAction(UIAlertAction(title: "Continue Login", style: .default, handler: { _ in
+         if let service = OneTimeService.response(serverURL: ackURL, response: .accept) {
+            service.execute()
+         }
+      }))
+
+      // => Show
+      //
+      UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
    }
 }
 

@@ -21,15 +21,10 @@ struct OneTimeService {
    }
 
    func execute(){
-//      var urlComponents = URLComponents(url: serverURL, resolvingAgainstBaseURL: false)
-//      urlComponents?.query = "AuthToken=\(authorizationToken)&PlatformID=1" + (query != nil ? ("&\(query!)") : "")
-//      guard let endpoint = urlComponents?.url else { return }
-
-      //platformID - 1 for ios, 2 for android
-      //passcode
+      
       var postParameters = query
-      postParameters["AuthToken"]=authorizationToken
-      postParameters["PlatformID"]=1
+      postParameters["AuthToken"] = authorizationToken
+      postParameters["PlatformID"] = 1 //ios
 
       guard let jsonData = try? JSONSerialization.data(withJSONObject: postParameters, options: []) else {
          print ("Error serializing post parameters to JSON")
