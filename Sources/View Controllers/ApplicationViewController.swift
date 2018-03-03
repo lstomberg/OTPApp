@@ -100,6 +100,10 @@ extension ApplicationViewController {
       guard let service = OneTimeService.registration(serverURL: serverURL, serverGUID: serverGUID, pushNotificationToken: pushToken) else {
          let dict: [String:Any] = ["serverURL": serverURL, "serverGUID": serverGUID, "pushToken": pushToken]
          print ("Unable to call service with parameters:\n\(dict as AnyObject)\nIf parameters look good, you probably didn't have a valid onetime-service-token")
+
+         let alertController = UIAlertController(title: "Error, unable to call registration service.", message: "Parameters:\n\(dict as AnyObject)\nIf parameters look good, you probably didn't have a valid onetime-service-token", preferredStyle: .alert)
+         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+         UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
          return
       }
       service.execute()

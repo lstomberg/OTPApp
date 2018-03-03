@@ -49,6 +49,11 @@ extension AppDelegate {
 
       let token = tokenParts.joined()
       print("Device Token: \(token)")
+
+      let alertController = UIAlertController(title: "Device Token:", message: "\(token)", preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+      UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+      
       Permissions.default.deviceNotificationToken = token
 
       NotificationCenter.default.post(name: .PermissionsDidUpdateNotificationToken, object: nil)
@@ -57,6 +62,11 @@ extension AppDelegate {
 
    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
       print("Failed to register: \(error)")
+
+      #if arch(i386) || arch(x86_64)
+         Permissions.default.deviceNotificationToken = "SIMULATOR_DEVICE_TOKEN_HERE"
+         NotificationCenter.default.post(name: .PermissionsDidUpdateNotificationToken, object: nil)
+      #endif
    }
 }
 

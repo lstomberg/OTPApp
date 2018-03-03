@@ -27,11 +27,11 @@ class EmptyStateViewController : UIViewController {
 }
 
 extension EmptyStateViewController {
-   @objc
-   func helpButtonTapped() {
-      let ackURL = "THIS_IS_ACK_URL"
-      let registrationURL = "THIS_IS_REGISTRATION_URL"
-      let registrationToken = "THIS_IS_REGISTRATION_TOKEN"
+
+   func fakeURL() -> URL? {
+      let ackURL = "http://EPIC.com/acceptTokenPush"
+      let registrationURL = "http://www.google.com/RegisterDevice"
+      let registrationToken = "hunter2"
       let secret = "JBSWY3DPEHPK3PXP"
       let issuer = "Epic"
       let digits = "8"
@@ -39,13 +39,65 @@ extension EmptyStateViewController {
       let algorithm = "SHA512"
       let organization = "Epic"
       let username = "lstomber"
-      guard let url = URL(string: "otpauth://totp/\(organization):\(username)?secret=\(secret)&issuer=\(issuer)&digits=\(digits)&period=\(period)&algorithm=\(algorithm)&ack=\(ackURL)&registration=\(registrationURL)&registrationToken=\(registrationToken)") else {
-         return
+
+      let url = URL(string: "otpauth://totp/\(organization):\(username)?secret=\(secret)&issuer=\(issuer)&digits=\(digits)&period=\(period)&algorithm=\(algorithm)&ack=\(ackURL)&registration=\(registrationURL)&registrationToken=\(registrationToken)")
+      return url
+   }
+
+   func fakeURL2() -> URL? {
+      let organization = "Epic"
+      let username = "lstomber"
+      let secret = "*******************************************"
+      let issuer = "Epic"
+      let digits = "6"
+      let period = "30"
+      let algorithm = "SHA256"
+      let registrationURL = "http://vs-icx.epic.com/Interconnect-CDE/internal/Mobile/Unauthenticated/Epic.Mobile.Security.TwoFactorAuthentication.RegisterDevice"
+      let ackURL = "http://EPIC.com/acceptTokenPush"
+      let registrationToken = "sSbC4xB7MEKx/yhJJjlztpGHzv8D1vIgIpapcmTDZXCRbxYTYeI5Z58vKofrbHRWN1Y1g3ir/2WJFwJky8RvBaBruuW5BuFO2c30v6ObaKwFDRLk1n/5mz512dBtDunz"
+
+      let url = URL(string: "otpauth://totp/\(organization):\(username)?secret=\(secret)&issuer=\(issuer)&digits=\(digits)&period=\(period)&algorithm=\(algorithm)&ack=\(ackURL)&registration=\(registrationURL)&registrationToken=\(registrationToken)")
+      return url
+   }
+
+   @objc
+   func helpButtonTapped() {
+      if let url = fakeURL2() {
+         UIApplication.shared.open(url, options: [:], completionHandler: nil)
       }
-      
-      UIApplication.shared.open(url, options: [:], completionHandler: nil)
    }
 }
+
+
+
+
+
+
+
+
+
+
+
+/*
+ example otpauth://totp/Epic:lstomber?secret=JBSWY3DPEHPK3PXP&issuer=Epic&digits=8&period=60&algorithm=SHA512&ack=http://interconnect/path/service/2/3&registration=http://interconnect/path/service/1/1/1​&registrationToken=sdlfkjlkjTHISISAREGISTRATIONTOKENlksdjflksj
+
+ generated QR CODE here:
+ https://chart.googleapis.com/chart?cht=qr&chl=otpauth%3A%2F%2Ftotp%2FEpic%3Alstomber%3Fsecret%3DJBSWY3DPEHPK3PXP%26issuer%3DEpic%26digits%3D8%26period%3D60%26algorithm%3DSHA512%26ack%3Dhttp%3A%2F%2Finterconnect%2Fpath%2Fservice%2F2%2F3%26registration%3Dhttp%3A%2F%2Finterconnect%2Fpath%2Fservice%2F1%2F1%2F1%E2%80%8B%26registrationToken%3DsdlfkjlkjTHISISAREGISTRATIONTOKENlksdjflksj&chs=180x180&choe=UTF-8&chld=L|2
+
+
+ otpauth://totp/Epic:lstomber?secret=JBSWY3DPEHPK3PXP&issuer=Epic&digits=8&period=60&algorithm=SHA512&ack=http://www.EPIC.com/acceptTokenPush&registration=http://www.google.com/registerDevice&registrationToken=hunter2
+
+ https://chart.googleapis.com/chart?cht=qr&chl=otpauth%3A%2F%2Ftotp%2FEpic%3Alstomber%3Fsecret%3DJBSWY3DPEHPK3PXP%26issuer%3DEpic%26digits%3D8%26period%3D60%26algorithm%3DSHA512%26ack%3Dhttp%3A%2F%2Fwww.EPIC.com%2FacceptTokenPush%26registration%3Dhttp%3A%2F%2Fwww.google.com%2FregisterDevice%26registrationToken%3Dhunter2&chs=180x180&choe=UTF-8&chld=L|2
+ */
+
+
+
+
+
+
+
+
+
 
 
 class EmptyStateView : UIView {

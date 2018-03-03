@@ -12,21 +12,68 @@ struct OneTimeService {
    static var temporaryAuthStore = AuthStore()
    let authorizationToken: String
    let serverURL: URL
-   var query: String?
+   var query: [String: Any]
 
    init(authorizationToken: String, serverURL: URL) {
       self.authorizationToken = authorizationToken
       self.serverURL = serverURL
+      self.query = [:]
    }
 
    func execute(){
-      var urlComponents = URLComponents(url: serverURL, resolvingAgainstBaseURL: false)
-      urlComponents?.query = "authToken=\(authorizationToken)" + (query != nil ? ("&&\(query!)") : "")
-      guard let endpoint = urlComponents?.url else { return }
+//      var urlComponents = URLComponents(url: serverURL, resolvingAgainstBaseURL: false)
+//      urlComponents?.query = "AuthToken=\(authorizationToken)&PlatformID=1" + (query != nil ? ("&\(query!)") : "")
+//      guard let endpoint = urlComponents?.url else { return }
 
-      let task = URLSession.shared.dataTask(with: endpoint) { (data, response, error) in
-         let dict: [String:Any] = ["endpoint":endpoint, "response":response, "data":data, "error":error ]
-         print ("Task finished: \(dict as AnyObject)")
+      //platformID - 1 for ios, 2 for android
+      //passcode
+      var postParameters = query
+      postParameters["AuthToken"]=authorizationToken
+      postParameters["PlatformID"]=1
+
+      guard let jsonData = try? JSONSerialization.data(withJSONObject: postParameters, options: []) else {
+         print ("Error serializing post parameters to JSON")
+         return
+      }
+
+      var postRequest = URLRequest(url: serverURL, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 8.0)
+      postRequest.httpBody = jsonData
+      postRequest.httpMethod = "POST"
+      postRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+      postRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+
+      let task = URLSession.shared.dataTask(with: postRequest) { (data, response, error) in
+         let dict: [String:Any?] = ["endpoint":self.serverURL, "response":response, "content length":data?.count, "error":error ]
+
+         if let data = data,
+            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
+            let dict = json as? Dictionary<String,Any> {
+            print ("")
+            print ("************")
+            print ("* DATA      ")
+            print ("************")
+            print (dict)
+         }
+
+         if let response = response {
+            print ("")
+            print ("************")
+            print ("* RESPONSE  ")
+            print ("************")
+            print (response)
+         }
+
+         if let error = error {
+            print ("")
+            print ("************")
+            print ("* ERROR     ")
+            print ("************")
+            print (error)
+         }
+
+         let alertController = UIAlertController(title: "Task response:", message: "\(dict as AnyObject)", preferredStyle: .alert)
+         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+         UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
       }
       task.resume()
    }
@@ -66,7 +113,7 @@ extension OneTimeService {
       }
 
       var service = OneTimeService(entry)
-      service.query = "serverGUID=\(serverGUID)&&pushNotificationToken=\(pushNotificationToken)"
+      service.query = ["EnvironmentGUID":serverGUID,"DeviceToken":pushNotificationToken,"Passcode":1]
       return service
    }
 
@@ -81,7 +128,7 @@ extension OneTimeService {
       }
 
       var service = OneTimeService(entry)
-      service.query = "response=\(response)"
+      service.query = ["response":response]
       return service
    }
 }

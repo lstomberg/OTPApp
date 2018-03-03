@@ -36,6 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var applicationViewController = ApplicationViewController()
 
    open func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+      #if arch(i386) || arch(x86_64)
+         for extendedToken in TokenCenter.main.allTokens() {
+            TokenCenter.main.remove(token: extendedToken)
+         }
+      #endif
+
       self.window?.rootViewController = applicationViewController
       self.window?.makeKeyAndVisible()
       self.window?.tintColor = UIColor(displayP3Red: 0.204, green: 0.596, blue: 0.859, alpha: 1.0)
@@ -58,9 +64,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    //push notification must include web service to hit for verification + OTP: we send TOTP
 
    open func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+
       guard let (optionalURL, optionalToken, addTokenNotification) = TokenCenter.main.addToken(with: url) else {
          return false
       }
+
 
       if let registrationURL = optionalURL,
          let authToken = optionalToken {

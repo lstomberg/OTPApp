@@ -14,7 +14,6 @@
 		494DE6AD1F2EB36A00E7A8E2 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497706381F2B78E20061E8C1 /* Interface.storyboard */; };
 		49527EF71F2E3A4E0069CE18 /* WatchProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49527EF61F2E3A4E0069CE18 /* WatchProcess.swift */; };
 		4966667E202261A90074E682 /* Differ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4966667D202261A90074E682 /* Differ.framework */; };
-		4966667F202261AE0074E682 /* Differ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4966667D202261A90074E682 /* Differ.framework */; };
 		49666680202261AE0074E682 /* Differ.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4966667D202261A90074E682 /* Differ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497450A41F2AA95900BEEFE9 /* Base32.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444B1F2AA86B00310B89 /* Base32.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		497450A51F2AA95900BEEFE9 /* OneTimePassword.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4922444C1F2AA86B00310B89 /* OneTimePassword.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -209,7 +208,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4966667E202261A90074E682 /* Differ.framework in Frameworks */,
-				4966667F202261AE0074E682 /* Differ.framework in Frameworks */,
 				4922444E1F2AA86B00310B89 /* Base32.framework in Frameworks */,
 				4922444F1F2AA86B00310B89 /* OneTimePassword.framework in Frameworks */,
 				492244501F2AA86B00310B89 /* PermissionScope.framework in Frameworks */,
@@ -490,7 +488,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Epic;
 				TargetAttributes = {
 					497706351F2B78E20061E8C1 = {
